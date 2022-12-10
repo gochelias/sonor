@@ -30,7 +30,7 @@ class LibraryScreen extends StatelessWidget {
         ],
       ),
       body: Container(
-        margin: const EdgeInsets.only(top: 4.0),
+        margin: const EdgeInsets.only(top: 6.0),
         child: GridView.count(
           childAspectRatio: 3,
           mainAxisSpacing: 10,
