@@ -69,17 +69,18 @@ class _SonorStatefullWidgetState extends State<SonorStatefullWidget> {
             children: <Widget>[
               Center(
                 child: SizedBox(
-                  width: 320.0,
+                  /* width: 320.0, */
                   child: widget.child,
                 ),
               ),
               const Positioned(
                 bottom: 0.0,
                 child: SongCurrentlyPlaying(
-                    image:
-                        'https://i1.sndcdn.com/artworks-IBwHyCww2eKRuJM8-lBp1Ug-t200x200.jpg',
-                    songName: 'Vega',
-                    artistName: 'LXST CXTURY'),
+                  image:
+                      'https://i1.sndcdn.com/artworks-IBwHyCww2eKRuJM8-lBp1Ug-t200x200.jpg',
+                  songName: 'Vega',
+                  artistName: 'LXST CXTURY',
+                ),
               )
             ],
           ),

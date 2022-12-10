@@ -1,5 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:sonor/widgets/album_widget.dart';
+import 'package:sonor/widgets/recent_albums_section_widget.dart';
+import 'package:sonor/widgets/tabs_section_widget.dart';
 
 import 'package:sonor/widgets/widgets.dart';
 
@@ -21,42 +25,23 @@ class LibraryScreen extends StatelessWidget {
         ),
         actions: <Widget>[
           IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Ionicons.settings_outline,
-                size: 22.0,
-                color: Colors.white,
-              ))
+            onPressed: () {},
+            icon: const Icon(
+              Ionicons.settings_outline,
+              size: 22.0,
+              color: Colors.white,
+            ),
+          )
         ],
       ),
       body: Container(
         margin: const EdgeInsets.only(top: 6.0),
-        child: GridView.count(
-          childAspectRatio: 3,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
-          crossAxisCount: 2,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: const <Widget>[
-            TabIconHome(
-              icon: 'assets/icons/music_bold.svg',
-              label: 'Songs',
-              path: '/songs',
-            ),
-            TabIconHome(
-              icon: 'assets/icons/microphone_bold.svg',
-              label: 'Artists',
-              path: '/artists',
-            ),
-            TabIconHome(
-              icon: 'assets/icons/heart_bold.svg',
-              label: 'Favorites',
-              path: '/favorites',
-            ),
-            TabIconHome(
-              icon: 'assets/icons/music_albums_bold.svg',
-              label: 'Albums',
-              path: '/albums',
-            ),
+            TabsSection(),
+            SizedBox(height: 30.0),
+            RecentAlbumsSection(),
           ],
         ),
       ),
