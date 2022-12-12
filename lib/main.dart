@@ -96,23 +96,26 @@ class _SonorStatefullWidgetState extends State<SonorStatefullWidget> {
         onTap: (int index) => _onItemTapped(index, context),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: NavbarItemIcon(
-                icon: homeBoldSvg,
-                selected: _selectedIndex == 0,
-              ),
-              label: 'Home'),
+            icon: NavbarItemIcon(
+              icon: homeBoldSvg,
+              selected: _selectedIndex == 0,
+            ),
+            label: 'Home',
+          ),
           BottomNavigationBarItem(
-              icon: NavbarItemIcon(
-                icon: musicPlaylistSvg,
-                selected: _selectedIndex == 1,
-              ),
-              label: 'Playlist'),
+            icon: NavbarItemIcon(
+              icon: searchOutlineSvg,
+              selected: _selectedIndex == 2,
+            ),
+            label: 'Explore',
+          ),
           BottomNavigationBarItem(
-              icon: NavbarItemIcon(
-                icon: searchOutlineSvg,
-                selected: _selectedIndex == 2,
-              ),
-              label: 'Explore')
+            icon: NavbarItemIcon(
+              icon: musicPlaylistSvg,
+              selected: _selectedIndex == 1,
+            ),
+            label: 'Playlist',
+          ),
         ],
       ),
     );
