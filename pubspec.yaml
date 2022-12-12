@@ -74,6 +74,7 @@ flutter:
         - assets/icons/music_list_bold.svg
         - assets/icons/music_albums_bold.svg
         - assets/icons/microphone_bold.svg
+        - assets/icons/setting_linear.svg
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,10 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
-import 'package:sonor/widgets/album_widget.dart';
-import 'package:sonor/widgets/recent_albums_section_widget.dart';
-import 'package:sonor/widgets/tabs_section_widget.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+import 'package:sonor/greetings.dart';
 import 'package:sonor/widgets/widgets.dart';
 
 class LibraryScreen extends StatelessWidget {
@@ -15,23 +12,25 @@ class LibraryScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
-        titleSpacing: 0.0,
         toolbarHeight: 80.0,
         backgroundColor: Colors.transparent,
-        title: const Text(
-          'Home',
-          style: TextStyle(
-              color: Colors.white, fontSize: 24.0, fontWeight: FontWeight.w500),
+        title: Text(
+          greetings(),
+          style: const TextStyle(
+              color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.w600),
         ),
         actions: <Widget>[
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Ionicons.settings_outline,
-              size: 22.0,
-              color: Colors.white,
+          GestureDetector(
+            onTap: (() => print('Tapped')),
+            behavior: HitTestBehavior.opaque,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: SvgPicture.asset(
+                'assets/icons/setting_linear.svg',
+                color: Colors.white,
+              ),
             ),
-          )
+          ),
         ],
       ),
       body: Container(
