@@ -21,7 +21,6 @@ class Album extends StatelessWidget {
           Container(
             width: 140.0,
             height: 140.0,
-            margin: const EdgeInsets.only(top: 10.0),
             decoration: BoxDecoration(
               color: const Color(0xFF1c1c1e),
               borderRadius: BorderRadius.circular(8.0),

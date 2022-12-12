@@ -1,5 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:sonor/greetings.dart';
 import 'package:sonor/widgets/widgets.dart';
@@ -20,15 +20,14 @@ class LibraryScreen extends StatelessWidget {
               color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.w600),
         ),
         actions: <Widget>[
-          GestureDetector(
-            onTap: (() => print('Tapped')),
-            behavior: HitTestBehavior.opaque,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: SvgPicture.asset(
-                'assets/icons/setting_linear.svg',
-                color: Colors.white,
-              ),
+          Container(
+            alignment: Alignment.center,
+            margin: const EdgeInsets.only(
+              right: 16.0,
+            ),
+            child: const SonorIconButton(
+              icon: 'assets/icons/setting_linear.svg',
+              color: Colors.white,
             ),
           ),
         ],
@@ -39,7 +38,19 @@ class LibraryScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const <Widget>[
             TabsSection(),
-            SizedBox(height: 30.0),
+            SizedBox(height: 32.0),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(
+                'Recently Played',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            SizedBox(height: 16.0),
             RecentAlbumsSection(),
           ],
         ),

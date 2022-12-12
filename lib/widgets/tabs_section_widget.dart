@@ -31,7 +31,7 @@ class TabsSection extends StatelessWidget {
     ];
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20.0),
+      margin: const EdgeInsets.symmetric(horizontal: 16.0),
       height: 110.0,
       child: GridView.builder(
         itemCount: 4,
