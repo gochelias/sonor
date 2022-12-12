@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:sonor/main.dart';
+import 'package:sonor/screens/albums_screen.dart';
 import 'package:sonor/screens/screens.dart';
 
 router() {
@@ -21,18 +22,25 @@ router() {
         },
         routes: [
           GoRoute(
-              path: '/',
-              pageBuilder: (BuildContext context, GoRouterState state) {
-                return const NoTransitionPage(child: LibraryScreen());
-              },
-              routes: <RouteBase>[
-                GoRoute(
-                  path: 'songs',
-                  pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: SongsScreen());
-                  },
-                )
-              ]),
+            path: '/',
+            pageBuilder: (BuildContext context, GoRouterState state) {
+              return const NoTransitionPage(child: LibraryScreen());
+            },
+            routes: <RouteBase>[
+              GoRoute(
+                path: 'songs',
+                pageBuilder: (context, state) {
+                  return const NoTransitionPage(child: SongsScreen());
+                },
+              ),
+              GoRoute(
+                path: 'albums',
+                builder: (context, state) {
+                  return const AlbumsScreen();
+                },
+              )
+            ],
+          ),
           GoRoute(
             path: '/playlist',
             pageBuilder: (BuildContext context, GoRouterState state) {
