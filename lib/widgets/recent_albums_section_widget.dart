@@ -33,12 +33,11 @@ class RecentAlbumsSection extends StatelessWidget {
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
                 mainAxisSpacing: 14.0,
-                mainAxisExtent: 140,
+                mainAxisExtent: 120,
               ),
               itemBuilder: (context, index) {
                 return const Album(
                   name: 'name',
-                  artists: 'artist',
                 );
               },
             ),

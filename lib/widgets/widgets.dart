@@ -6,3 +6,4 @@ export 'package:sonor/widgets/album_widget.dart';
 export 'package:sonor/widgets/recent_albums_section_widget.dart';
 export 'package:sonor/widgets/tabs_section_widget.dart';
 export 'package:sonor/widgets/icon_button_widget.dart';
+export 'package:sonor/widgets/recent_artists_widget.dart';
