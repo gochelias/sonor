@@ -19,19 +19,14 @@ class SongsScreen extends StatelessWidget {
   const SongsScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    final artworks = [
-      'https://2.bp.blogspot.com/-UvkRRxoqHaQ/WIY-0hNw4UI/AAAAAAAADSI/GSuKOllaI3M6XPKnDWgBFRWks-jbWOg7ACLcB/s100/C23xoliVQAA2eng.jpg',
-      'https://is3-ssl.mzstatic.com/image/thumb/Music125/v4/1b/64/14/1b64140b-fde9-6159-e0b9-dbcc0ed73a8b/artwork.jpg/100x100bf-60.jpg',
-    ];
-
     final nameSongs = [
-      'Scared to be lonley',
-      'Leave Your Side',
+      'Song Name',
+      'Song Name',
     ];
 
     final artists = [
-      'Martin Garrix',
-      'Shxpe',
+      'artist name',
+      'artist name',
     ];
 
     return Scaffold(
@@ -63,12 +58,12 @@ class SongsScreen extends StatelessWidget {
       ),
       backgroundColor: Colors.transparent,
       body: ListView.builder(
-        itemCount: artworks.length,
+        physics: const BouncingScrollPhysics(),
+        itemCount: nameSongs.length,
         itemBuilder: (context, index) {
           return Song(
-            image: artworks[index],
-            songName: nameSongs[index],
-            artistName: artists[index],
+            name: nameSongs[index],
+            artist: artists[index],
           );
         },
       ),

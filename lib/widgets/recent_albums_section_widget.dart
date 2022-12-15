@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sonor/widgets/album_widget.dart';
+
+import 'package:sonor/widgets/widgets.dart';
 
 class RecentAlbumsSection extends StatelessWidget {
   const RecentAlbumsSection({super.key});

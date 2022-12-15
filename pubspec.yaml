@@ -38,6 +38,8 @@ dependencies:
     ionicons: ^0.2.1
     flutter_svg: ^1.1.6
     go_router: ^5.2.2
+    on_audio_query: ^2.6.1
+    audio_manager: ^0.8.2
 
 dev_dependencies:
     flutter_test:
@@ -75,6 +77,24 @@ flutter:
         - assets/icons/music_albums_bold.svg
         - assets/icons/microphone_bold.svg
         - assets/icons/setting_linear.svg
+
+        - assets/svg/heart_bold.svg
+        - assets/svg/heart_linear.svg
+        - assets/svg/pause_bold.svg
+        - assets/svg/shuffle_bold.svg
+        - assets/svg/previous_bold.svg
+        - assets/svg/next_bold.svg
+        - assets/svg/repeate_linear.svg
+        - assets/svg/repeate_one_linear.svg
+        - assets/svg/home_bold.svg
+        - assets/svg/search_linear.svg
+        - assets/svg/music_playlist_bold.svg
+        - assets/svg/music_list_bold.svg
+        - assets/svg/scan_qr_bold.svg
+        - assets/svg/quote_square_linear.svg
+        - assets/svg/more_bold.svg
+        - assets/svg/menu_bold.svg
+        - assets/svg/download_linear.svg
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware
