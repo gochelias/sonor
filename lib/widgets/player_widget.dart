@@ -1,20 +1,61 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 
 import 'package:sonor/icons/icons.dart';
 import 'package:sonor/widgets/widgets.dart';
 
-class Player extends StatelessWidget {
+class Player extends StatefulWidget {
   const Player({
     super.key,
-    /* required this.id, */
-    required this.name,
-    required this.artist,
+    required this.song,
+    required this.audioPlayer,
   });
 
-  /* final int id; */
-  final String name;
-  final String artist;
+  final SongModel song;
+  final AudioPlayer audioPlayer;
+
+  @override
+  State<Player> createState() => _PlayerState();
+}
+
+class _PlayerState extends State<Player> {
+  bool isPlaying = false;
+
+  @override
+  void initState() {
+    super.initState();
+    playSong();
+  }
+
+  void playSong() async {
+    await widget.audioPlayer
+        .setAudioSource(
+          AudioSource.uri(
+            Uri.parse(widget.song.uri!),
+          ),
+        )
+        .catchError((onError) => print(onError));
+
+    widget.audioPlayer.play();
+  }
+
+  void buttonPrevious() {}
+
+  void buttonPlayOrPause() {
+    setState(() {
+      isPlaying = !isPlaying;
+
+      if (isPlaying) {
+        widget.audioPlayer.pause();
+      } else {
+        widget.audioPlayer.play();
+      }
+    });
+  }
+
+  void buttonNext() {}
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +76,12 @@ class Player extends StatelessWidget {
               color: CupertinoColors.systemGrey6.darkColor,
               borderRadius: BorderRadius.circular(12.0),
             ),
+            child: Artwork(
+              id: widget.song.id,
+              type: ArtworkType.AUDIO,
+              size: 400,
+              quality: 400,
+            ),
           ),
           Container(
             width: double.infinity,
@@ -53,7 +100,7 @@ class Player extends StatelessWidget {
                             SizedBox(
                               width: 290.0,
                               child: Text(
-                                name,
+                                widget.song.title,
                                 style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 20.0,
@@ -70,9 +117,9 @@ class Player extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 6.0),
+                      const SizedBox(height: 4.0),
                       Text(
-                        artist,
+                        widget.song.artist ?? 'no artist',
                         style: TextStyle(
                           color: CupertinoColors.systemGrey2.darkColor,
                           fontSize: 12.0,
@@ -87,7 +134,24 @@ class Player extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 32.0),
-          Container(
+          SliderTheme(
+              data: SliderThemeData(
+                trackHeight: 2.0,
+                thumbColor: CupertinoColors.white,
+                activeTrackColor: CupertinoColors.white,
+                inactiveTrackColor: CupertinoColors.systemGrey3.darkColor,
+                overlayColor: Colors.transparent,
+              ),
+              child: Slider(
+                value: 20,
+                max: 100,
+                onChanged: (value) {
+                  setState(() {
+                    value = value;
+                  });
+                },
+              )),
+          /* Container(
             width: 320.0,
             height: 2.0,
             alignment: Alignment.centerLeft,
@@ -96,7 +160,7 @@ class Player extends StatelessWidget {
               width: 100.0,
               color: CupertinoColors.white,
             ),
-          ),
+          ), */
           const SizedBox(height: 8.0),
           SizedBox(
             child: Row(
@@ -110,7 +174,7 @@ class Player extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '3:30',
+                  Duration(seconds: widget.song.duration!).inMinutes.toString(),
                   style: TextStyle(
                     color: CupertinoColors.systemGrey3.darkColor,
                     fontSize: 10.0,
@@ -125,18 +189,22 @@ class Player extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const <Widget>[
+              children: <Widget>[
                 SonorIconButton(
+                  onTap: () => buttonPrevious(),
                   icon: SonorIcons.previous_bold,
                   color: CupertinoColors.white,
                   size: 40.0,
                 ),
                 SonorIconButton(
-                  icon: SonorIcons.pause_linear,
+                  onTap: () => buttonPlayOrPause(),
+                  icon:
+                      isPlaying ? SonorIcons.play_bold : SonorIcons.pause_bold,
                   color: CupertinoColors.white,
                   size: 40.0,
                 ),
                 SonorIconButton(
+                  onTap: () => buttonNext(),
                   icon: SonorIcons.next_bold,
                   color: CupertinoColors.white,
                   size: 40.0,

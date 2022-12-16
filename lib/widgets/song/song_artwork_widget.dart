@@ -1,16 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+import 'package:sonor/icons/icons.dart';
 
 class Artwork extends StatelessWidget {
   const Artwork({
     super.key,
     required this.id,
     required this.type,
+    this.size,
+    this.quality,
   });
 
   final int id;
   final ArtworkType type;
+  final int? size;
+  final int? quality;
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +25,8 @@ class Artwork extends StatelessWidget {
         id,
         type,
         format: ArtworkFormat.JPEG,
-        size: 200,
-        quality: 100,
+        size: size ?? 200,
+        quality: quality ?? 100,
       ),
       builder: (context, snapshot) {
         if (snapshot.data != null && snapshot.data!.isNotEmpty) {
@@ -29,7 +35,7 @@ class Artwork extends StatelessWidget {
             height: 50.0,
             decoration: BoxDecoration(
               color: CupertinoColors.systemGrey6.darkColor,
-              borderRadius: BorderRadius.circular(6.0),
+              borderRadius: BorderRadius.circular(12.0),
               image: DecorationImage(
                 image: MemoryImage(
                   snapshot.data!,
@@ -45,6 +51,15 @@ class Artwork extends StatelessWidget {
           decoration: BoxDecoration(
             color: CupertinoColors.systemGrey6.darkColor,
             borderRadius: BorderRadius.circular(6.0),
+          ),
+          child: Container(
+            alignment: Alignment.center,
+            child: SvgPicture.asset(
+              SonorIcons.musicnote_bold,
+              color: CupertinoColors.white,
+              width: 22.0,
+              height: 22.0,
+            ),
           ),
         );
       },

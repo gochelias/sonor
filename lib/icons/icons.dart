@@ -6,7 +6,7 @@ class SonorIcons {
   static const heart_bold = '$_path/heart_bold.svg';
   static const heart_linear = '$_path/heart_linear.svg';
   static const next_bold = '$_path/next_bold.svg';
-  static const pause_linear = '$_path/pause_bold.svg';
+  static const pause_bold = '$_path/pause_bold.svg';
   static const previous_bold = '$_path/previous_bold.svg';
   static const shuffle_bold = '$_path/shuffle_bold.svg';
   static const repeate_linear = '$_path/repeate_linear.svg';
@@ -20,4 +20,6 @@ class SonorIcons {
   static const more_bold = '$_path/more_bold.svg';
   static const menu_bold = '$_path/menu_bold.svg';
   static const download_linear = '$_path/download_linear.svg';
+  static const musicnote_bold = '$_path/musicnote_bold.svg';
+  static const play_bold = '$_path/play_bold.svg';
 }

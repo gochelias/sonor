@@ -1,23 +1,31 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 
 import 'package:sonor/widgets/widgets.dart';
 
 class Song extends StatelessWidget {
   const Song({
     super.key,
-    /* required this.id, */
-    required this.name,
-    required this.artist,
+    required this.song,
+    required this.audioPlayer,
   });
 
-  /* final int id; */
-  final String name;
-  final String artist;
+  final SongModel song;
+  final AudioPlayer audioPlayer;
 
   @override
   Widget build(BuildContext context) {
-    void player(BuildContext context) {
+    /* playSong() async {
+      try {
+        audioPlayer.setAudioSource(AudioSource.uri(Uri.parse(path)));
+        audioPlayer.play();
+      } on Exception {
+        print('->> Error!!!');
+      }
+    } */
+
+    void playerScreen(BuildContext context) {
       showModalBottomSheet(
         useRootNavigator: true,
         context: context,
@@ -25,11 +33,16 @@ class Song extends StatelessWidget {
         backgroundColor: Colors.transparent,
         builder: (context) {
           return DraggableScrollableSheet(
-            initialChildSize: 0.95,
+            initialChildSize: 1,
             builder: (context, scrollController) {
-              return const Player(
-                name: 'Song Name',
-                artist: 'Artist Name',
+              return MediaQuery(
+                data: MediaQueryData.fromWindow(WidgetsBinding.instance.window),
+                child: SafeArea(
+                  child: Player(
+                    song: song,
+                    audioPlayer: audioPlayer,
+                  ),
+                ),
               );
             },
           );
@@ -38,19 +51,13 @@ class Song extends StatelessWidget {
     }
 
     return GestureDetector(
-      onTap: () => player(context),
+      behavior: HitTestBehavior.opaque,
+      onTap: () => playerScreen(context),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
         child: Row(
           children: <Widget>[
-            Container(
-              width: 50.0,
-              height: 50.0,
-              decoration: BoxDecoration(
-                color: CupertinoColors.systemGrey6.darkColor,
-                borderRadius: BorderRadius.circular(6.0),
-              ),
-            ),
+            Artwork(id: song.id, type: ArtworkType.AUDIO),
             const SizedBox(width: 10.0),
             Expanded(
               child: SizedBox(
@@ -58,7 +65,7 @@ class Song extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      name,
+                      song.title,
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 14.0,
@@ -68,7 +75,7 @@ class Song extends StatelessWidget {
                     ),
                     const SizedBox(height: 4.0),
                     Text(
-                      artist,
+                      song.artist ?? 'no artist',
                       style: const TextStyle(
                         color: Color(0xFF626266),
                         fontSize: 12.0,
