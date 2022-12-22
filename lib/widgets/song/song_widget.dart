@@ -56,16 +56,21 @@ class Song extends StatelessWidget {
       behavior: HitTestBehavior.opaque,
       onTap: () => playerScreen(context),
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
+        margin: const EdgeInsets.only(
+          left: 16.0,
+          right: 8.0,
+          top: 8.0,
+          bottom: 8.0,
+        ),
         child: Row(
           children: <Widget>[
             Artwork(
               id: song.id,
               type: ArtworkType.AUDIO,
-              borderRadius: 6.0,
+              borderRadius: 4.0,
               containerSize: 50.0,
             ),
-            const SizedBox(width: 10.0),
+            const SizedBox(width: 12.0),
             Expanded(
               child: SizedBox(
                 child: Column(
@@ -76,15 +81,16 @@ class Song extends StatelessWidget {
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 14.0,
+                        /* fontWeight: FontWeight.w500, */
                       ),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                     ),
-                    const SizedBox(height: 4.0),
+                    const SizedBox(height: 6.0),
                     Text(
                       song.artist ?? 'no artist',
-                      style: const TextStyle(
-                        color: Color(0xFF626266),
+                      style: TextStyle(
+                        color: CupertinoColors.systemGrey.darkColor,
                         fontSize: 12.0,
                       ),
                       overflow: TextOverflow.ellipsis,
@@ -93,6 +99,10 @@ class Song extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+            SonorIconButton(
+              icon: SonorIcons.more_bold,
+              color: CupertinoColors.systemGrey.darkColor,
             )
           ],
         ),
