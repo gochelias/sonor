@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+import 'package:sonor/icons/icons.dart';
 
 import 'package:sonor/widgets/widgets.dart';
 
@@ -40,7 +42,7 @@ class Song extends StatelessWidget {
                 child: SafeArea(
                   child: Player(
                     song: song,
-                    audioPlayer: audioPlayer,
+                    player: audioPlayer,
                   ),
                 ),
               );
@@ -57,7 +59,12 @@ class Song extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
         child: Row(
           children: <Widget>[
-            Artwork(id: song.id, type: ArtworkType.AUDIO),
+            Artwork(
+              id: song.id,
+              type: ArtworkType.AUDIO,
+              borderRadius: 6.0,
+              containerSize: 50.0,
+            ),
             const SizedBox(width: 10.0),
             Expanded(
               child: SizedBox(

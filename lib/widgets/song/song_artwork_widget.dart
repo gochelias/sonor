@@ -9,14 +9,20 @@ class Artwork extends StatelessWidget {
     super.key,
     required this.id,
     required this.type,
-    this.size,
-    this.quality,
+    this.size = 200,
+    this.quality = 100,
+    this.borderRadius = 12.0,
+    this.iconSize = 22.0,
+    required this.containerSize,
   });
 
   final int id;
   final ArtworkType type;
-  final int? size;
-  final int? quality;
+  final int size;
+  final int quality;
+  final double borderRadius;
+  final double iconSize;
+  final double containerSize;
 
   @override
   Widget build(BuildContext context) {
@@ -24,41 +30,42 @@ class Artwork extends StatelessWidget {
       future: OnAudioQuery().queryArtwork(
         id,
         type,
-        format: ArtworkFormat.JPEG,
-        size: size ?? 200,
-        quality: quality ?? 100,
+        format: ArtworkFormat.PNG,
+        size: size,
+        quality: quality,
       ),
       builder: (context, snapshot) {
         if (snapshot.data != null && snapshot.data!.isNotEmpty) {
           return Container(
-            width: 50.0,
-            height: 50.0,
+            width: containerSize,
+            height: containerSize,
             decoration: BoxDecoration(
               color: CupertinoColors.systemGrey6.darkColor,
-              borderRadius: BorderRadius.circular(12.0),
+              borderRadius: BorderRadius.circular(borderRadius),
               image: DecorationImage(
                 image: MemoryImage(
                   snapshot.data!,
                   scale: 1.0,
                 ),
+                fit: BoxFit.cover,
               ),
             ),
           );
         }
         return Container(
-          width: 50.0,
-          height: 50.0,
+          width: containerSize,
+          height: containerSize,
           decoration: BoxDecoration(
             color: CupertinoColors.systemGrey6.darkColor,
-            borderRadius: BorderRadius.circular(6.0),
+            borderRadius: BorderRadius.circular(borderRadius),
           ),
           child: Container(
             alignment: Alignment.center,
             child: SvgPicture.asset(
               SonorIcons.musicnote_bold,
               color: CupertinoColors.white,
-              width: 22.0,
-              height: 22.0,
+              width: iconSize,
+              height: iconSize,
             ),
           ),
         );

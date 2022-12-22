@@ -134,8 +134,6 @@ class LibraryScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 32.0),
-
-            /* const RecentAlbumsSection(), */
           ],
         ),
       ),
