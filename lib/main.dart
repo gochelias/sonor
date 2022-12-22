@@ -114,7 +114,7 @@ class _SonorStatefullWidgetState extends State<SonorStatefullWidget> {
               icon: musicPlaylistSvg,
               selected: _selectedIndex == 2,
             ),
-            label: 'Playlis',
+            label: 'Playlist',
           ),
         ],
       ),
