@@ -41,8 +41,8 @@ class SonorStatefullWidget extends StatefulWidget {
 
 const routes = [
   '/',
-  '/playlist',
   '/explore',
+  '/playlist',
 ];
 
 class _SonorStatefullWidgetState extends State<SonorStatefullWidget> {
@@ -105,16 +105,16 @@ class _SonorStatefullWidgetState extends State<SonorStatefullWidget> {
           BottomNavigationBarItem(
             icon: NavbarItemIcon(
               icon: searchOutlineSvg,
-              selected: _selectedIndex == 2,
+              selected: _selectedIndex == 1,
             ),
             label: 'Explore',
           ),
           BottomNavigationBarItem(
             icon: NavbarItemIcon(
               icon: musicPlaylistSvg,
-              selected: _selectedIndex == 1,
+              selected: _selectedIndex == 2,
             ),
-            label: 'Playlist',
+            label: 'Playlis',
           ),
         ],
       ),
