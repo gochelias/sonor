@@ -22,4 +22,5 @@ class SonorIcons {
   static const download_linear = '$_path/download_linear.svg';
   static const musicnote_bold = '$_path/musicnote_bold.svg';
   static const play_bold = '$_path/play_bold.svg';
+  static const settings_linear = '$_path/settings_linear.svg';
 }

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:sonor/greetings.dart';
+import 'package:sonor/icons/icons.dart';
 import 'package:sonor/widgets/widgets.dart';
 
 class LibraryScreen extends StatelessWidget {
@@ -30,21 +31,46 @@ class LibraryScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              height: 80.0,
+              height: 100.0,
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    greetings(),
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w600),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        greetings(),
+                        style: TextStyle(
+                            color: CupertinoColors.label.darkColor,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        'Let\'s play some music!',
+                        style: TextStyle(
+                          color: CupertinoColors.secondaryLabel.darkColor,
+                          fontSize: 14.0,
+                        ),
+                      ),
+                    ],
                   ),
-                  const SonorIconButton(
-                    icon: 'assets/icons/setting_linear.svg',
-                    color: Colors.white,
+                  Row(
+                    children: const <Widget>[
+                      SonorIconButton(
+                        icon: SonorIcons.search_linear,
+                        size: 24.0,
+                        color: Colors.white,
+                      ),
+                      SizedBox(width: 16.0),
+                      SonorIconButton(
+                        icon: SonorIcons.settings_linear,
+                        size: 24.0,
+                        color: Colors.white,
+                      ),
+                    ],
                   ),
                 ],
               ),
