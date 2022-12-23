@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SongCurrentlyPlaying extends StatelessWidget {
@@ -15,53 +16,54 @@ class SongCurrentlyPlaying extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 360.0,
-      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-      /* margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0), */
-      decoration: const BoxDecoration(
-        color: Color(0xff0f0f0f),
-        border: Border(
-          bottom: BorderSide(width: 1, color: Color(0xFF1c1c1e)),
+      width: MediaQuery.of(context).size.width,
+      padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
+        decoration: BoxDecoration(
+          color: CupertinoColors.darkBackgroundGray,
+          borderRadius: BorderRadius.circular(10.0),
         ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            width: 35.0,
-            height: 35.0,
-            decoration: BoxDecoration(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              width: 40.0,
+              height: 40.0,
+              decoration: BoxDecoration(
                 color: Colors.black,
-                borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(4.0)),
                 image: DecorationImage(
                   image: NetworkImage(image),
-                )),
-          ),
-          const SizedBox(width: 10.0),
-          SizedBox(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  songName,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 14.0,
-                  ),
                 ),
-                const SizedBox(height: 4.0),
-                Text(
-                  artistName,
-                  style: const TextStyle(
-                    color: Color(0xFF626266),
-                    fontSize: 9.0,
-                  ),
-                )
-              ],
+              ),
             ),
-          )
-        ],
+            const SizedBox(width: 10.0),
+            SizedBox(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    songName,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12.0,
+                    ),
+                  ),
+                  const SizedBox(height: 6.0),
+                  Text(
+                    artistName,
+                    style: TextStyle(
+                      color: CupertinoColors.white.withOpacity(0.6),
+                      fontSize: 9.0,
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
