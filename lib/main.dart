@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sonor/icons/icons.dart';
 
 import 'package:sonor/widgets/widgets.dart';
+import 'package:sonor/icons/icons.dart';
 import 'package:sonor/config/routes/routes.dart';
-import 'package:sonor/widgets/song/song_currently_playing.dart';
 
 void main() => runApp(const Sonor());
 
@@ -74,11 +73,9 @@ class _SonorStatefullWidgetState extends State<SonorStatefullWidget> {
               ),
               const Positioned(
                 bottom: 0.0,
-                child: SongCurrentlyPlaying(
-                  image:
-                      'https://i1.sndcdn.com/artworks-IBwHyCww2eKRuJM8-lBp1Ug-t200x200.jpg',
-                  songName: 'Vega',
-                  artistName: 'LXST CXTURY',
+                child: CurrentlyPlaying(
+                  name: 'Song Name',
+                  artist: 'Artist Name',
                 ),
               )
             ],
