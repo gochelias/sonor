@@ -68,6 +68,7 @@ class LibraryScreen extends StatelessWidget {
             const ViewAllSeparator(
               label: 'Recently played',
               routeName: 'playlist',
+              marginTop: 0.0,
             ),
             const RecentlyPlayed(),
           ],

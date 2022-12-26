@@ -6,18 +6,20 @@ class ViewAllSeparator extends StatelessWidget {
     super.key,
     required this.label,
     required this.routeName,
+    this.marginTop = 32.0,
   });
 
   final String label;
   final String routeName;
+  final double marginTop;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(
+      margin: EdgeInsets.only(
         left: 16.0,
         right: 16.0,
-        top: 32.0,
+        top: marginTop,
         bottom: 16.0,
       ),
       child: Row(
