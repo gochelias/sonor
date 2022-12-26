@@ -44,7 +44,7 @@ class SonorStatefullWidget extends StatefulWidget {
 const routes = [
   '/',
   '/explore',
-  '/playlist',
+  '/library',
 ];
 
 class _SonorStatefullWidgetState extends State<SonorStatefullWidget> {

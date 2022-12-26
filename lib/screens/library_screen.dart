@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PlaylistScreen extends StatelessWidget {
-  const PlaylistScreen({super.key});
+class LibraryScreen extends StatelessWidget {
+  const LibraryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class PlaylistScreen extends StatelessWidget {
       body: SizedBox(
         child: Center(
           child: Text(
-            'Playlist',
+            'Library',
             style: TextStyle(color: Colors.white),
           ),
         ),

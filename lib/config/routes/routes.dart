@@ -42,9 +42,9 @@ router() {
             ],
           ),
           GoRoute(
-            path: '/playlist',
+            path: '/library',
             pageBuilder: (BuildContext context, GoRouterState state) {
-              return const NoTransitionPage(child: PlaylistScreen());
+              return const NoTransitionPage(child: LibraryScreen());
             },
           ),
           GoRoute(
