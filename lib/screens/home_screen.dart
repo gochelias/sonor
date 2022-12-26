@@ -7,8 +7,8 @@ import 'package:sonor/widgets/recently_played_witget.dart';
 import 'package:sonor/widgets/view_all_separator_widget.dart';
 import 'package:sonor/widgets/widgets.dart';
 
-class LibraryScreen extends StatelessWidget {
-  const LibraryScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

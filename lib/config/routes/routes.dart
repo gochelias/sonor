@@ -24,7 +24,7 @@ router() {
           GoRoute(
             path: '/',
             pageBuilder: (BuildContext context, GoRouterState state) {
-              return const NoTransitionPage(child: LibraryScreen());
+              return const NoTransitionPage(child: HomeScreen());
             },
             routes: <RouteBase>[
               GoRoute(
