@@ -66,19 +66,13 @@ flutter:
 
     # To add assets to your application, add an assets section, like this:
     assets:
-        - assets/icons/music_playlist_bold.svg
-        - assets/icons/search_outline.svg
-        - assets/icons/music_library_bold.svg
         - assets/icons/menu_bold.svg
         - assets/icons/menu.svg
         - assets/icons/arrow_right.svg
-        - assets/icons/home_bold.svg
         - assets/icons/music_bold.svg
         - assets/icons/heart_bold.svg
-        - assets/icons/music_list_bold.svg
         - assets/icons/music_albums_bold.svg
         - assets/icons/microphone_bold.svg
-        - assets/icons/setting_linear.svg
 
         - assets/svg/heart_bold.svg
         - assets/svg/heart_linear.svg
@@ -89,6 +83,8 @@ flutter:
         - assets/svg/repeate_linear.svg
         - assets/svg/repeate_one_linear.svg
         - assets/svg/home_bold.svg
+        - assets/svg/home_linear.svg
+        - assets/svg/search_bold.svg
         - assets/svg/search_linear.svg
         - assets/svg/music_playlist_bold.svg
         - assets/svg/music_list_bold.svg
@@ -100,6 +96,8 @@ flutter:
         - assets/svg/musicnote_bold.svg
         - assets/svg/play_bold.svg
         - assets/svg/settings_linear.svg
+        - assets/svg/music_library_bold.svg
+        - assets/svg/music_library_linear.svg
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware

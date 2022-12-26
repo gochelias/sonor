@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sonor/icons/icons.dart';
 
 import 'package:sonor/widgets/widgets.dart';
 import 'package:sonor/config/routes/routes.dart';
@@ -57,10 +60,6 @@ class _SonorStatefullWidgetState extends State<SonorStatefullWidget> {
 
   @override
   Widget build(BuildContext context) {
-    const String musicPlaylistSvg = 'assets/icons/music_playlist_bold.svg';
-    const String searchOutlineSvg = 'assets/icons/search_outline.svg';
-    const String homeBoldSvg = 'assets/icons/home_bold.svg';
-
     return Scaffold(
       backgroundColor: const Color(0xFF000000),
       body: SafeArea(
@@ -87,32 +86,42 @@ class _SonorStatefullWidgetState extends State<SonorStatefullWidget> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xff0f0f0f),
-        selectedItemColor: const Color(0xFFff385f),
-        selectedFontSize: 13.0,
-        unselectedFontSize: 13.0,
-        unselectedItemColor: const Color(0xFF626266),
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        backgroundColor: CupertinoColors.systemBackground.darkColor,
         currentIndex: _selectedIndex,
         onTap: (int index) => _onItemTapped(index, context),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: NavbarItemIcon(
-              icon: homeBoldSvg,
-              selected: _selectedIndex == 0,
+            activeIcon: SvgPicture.asset(
+              SonorIcons.home_bold,
+              color: CupertinoColors.white,
+            ),
+            icon: SvgPicture.asset(
+              SonorIcons.home_linear,
+              color: CupertinoColors.secondaryLabel.darkColor,
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: NavbarItemIcon(
-              icon: searchOutlineSvg,
-              selected: _selectedIndex == 1,
+            activeIcon: SvgPicture.asset(
+              SonorIcons.search_bold,
+              color: CupertinoColors.white,
+            ),
+            icon: SvgPicture.asset(
+              SonorIcons.search_linear,
+              color: CupertinoColors.secondaryLabel.darkColor,
             ),
             label: 'Explore',
           ),
           BottomNavigationBarItem(
-            icon: NavbarItemIcon(
-              icon: musicPlaylistSvg,
-              selected: _selectedIndex == 2,
+            activeIcon: SvgPicture.asset(
+              SonorIcons.music_library_bold,
+              color: CupertinoColors.white,
+            ),
+            icon: SvgPicture.asset(
+              SonorIcons.music_library_linear,
+              color: CupertinoColors.secondaryLabel.darkColor,
             ),
             label: 'Playlist',
           ),

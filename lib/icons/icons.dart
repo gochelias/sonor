@@ -12,6 +12,8 @@ class SonorIcons {
   static const repeate_linear = '$_path/repeate_linear.svg';
   static const repeate_one_linear = '$_path/repeate_one_linear.svg';
   static const home_bold = '$_path/home_bold.svg';
+  static const home_linear = '$_path/home_linear.svg';
+  static const search_bold = '$_path/search_bold.svg';
   static const search_linear = '$_path/search_linear.svg';
   static const music_playlist_bold = '$_path/music_playlist_bold.svg';
   static const music_list_bold = '$_path/music_list_bold.svg';
@@ -23,4 +25,6 @@ class SonorIcons {
   static const musicnote_bold = '$_path/musicnote_bold.svg';
   static const play_bold = '$_path/play_bold.svg';
   static const settings_linear = '$_path/settings_linear.svg';
+  static const music_library_linear = '$_path/music_library_linear.svg';
+  static const music_library_bold = '$_path/music_library_bold.svg';
 }
