@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:sonor/icons/icons.dart';
 
 class CardPlaylist extends StatelessWidget {
@@ -12,18 +12,18 @@ class CardPlaylist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-          width: 120.0,
-          height: 120.0,
+          width: 124.0,
+          height: 70.0,
           decoration: BoxDecoration(
             color: CupertinoColors.darkBackgroundGray,
             borderRadius: BorderRadius.circular(10.0),
           ),
           child: image ??
               Container(
-                padding: const EdgeInsets.all(28.0),
+                padding: const EdgeInsets.all(20.0),
                 child: SvgPicture.asset(
                   SonorIcons.musicnote_bold,
                   color: CupertinoColors.secondaryLabel.darkColor,
