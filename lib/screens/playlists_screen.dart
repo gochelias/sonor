@@ -1,34 +1,37 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import 'package:sonor/widgets/widgets.dart';
 
-class RecentlyPlayed extends StatelessWidget {
-  const RecentlyPlayed({
+class PlaylistScreen extends StatelessWidget {
+  const PlaylistScreen({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 144.0,
+    return SizedBox.expand(
       child: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
+          crossAxisCount: 2,
           mainAxisSpacing: 16.0,
           crossAxisSpacing: 16.0,
-          mainAxisExtent: 144.0,
-          childAspectRatio: 280.0,
+          mainAxisExtent: 210,
         ),
-        itemCount: 3,
-        scrollDirection: Axis.vertical,
+        itemCount: 12,
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.only(
+          left: 16.0,
+          right: 16.0,
+          top: 16.0,
+          bottom: 80.0,
+        ),
         itemBuilder: (context, index) {
           return const CardPlaylist(
             name: 'Playlist Name',
-            size: 100.0,
-            fontSize: 12.0,
+            size: 156.0,
+            fontSize: 14.0,
+            max: true,
+            total: 18,
           );
         },
       ),

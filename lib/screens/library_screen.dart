@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'package:sonor/screens/screens.dart';
+
 class LibraryScreen extends StatelessWidget {
   const LibraryScreen({super.key});
 
@@ -50,12 +52,7 @@ class LibraryScreen extends StatelessWidget {
         body: const TabBarView(
           physics: BouncingScrollPhysics(),
           children: <Widget>[
-            Center(
-              child: Text(
-                'Playlists',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
+            PlaylistScreen(),
             Center(
               child: Text(
                 'Songs',
