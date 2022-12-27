@@ -110,7 +110,7 @@ class CurrentlyPlaying extends StatelessWidget {
               thumbRadius: 1.0,
               thumbColor: Colors.transparent,
               progressBarColor: CupertinoColors.white,
-              baseBarColor: Colors.transparent,
+              baseBarColor: CupertinoColors.black,
               timeLabelLocation: TimeLabelLocation.none,
               progress: Duration(seconds: 98),
               total: Duration(seconds: 198),
