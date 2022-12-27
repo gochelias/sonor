@@ -21,7 +21,7 @@ class LibraryScreen extends StatelessWidget {
             ),
           ),
           bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(50.0),
+            preferredSize: const Size.fromHeight(40.0),
             child: Align(
               alignment: Alignment.centerLeft,
               child: TabBar(
