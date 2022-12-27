@@ -53,12 +53,7 @@ class LibraryScreen extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           children: <Widget>[
             PlaylistScreen(),
-            Center(
-              child: Text(
-                'Songs',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
+            SongsScreen(),
             Center(
               child: Text(
                 'Artists',

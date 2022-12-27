@@ -18,15 +18,6 @@ class Song extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /* playSong() async {
-      try {
-        audioPlayer.setAudioSource(AudioSource.uri(Uri.parse(path)));
-        audioPlayer.play();
-      } on Exception {
-        print('->> Error!!!');
-      }
-    } */
-
     void playerScreen(BuildContext context) {
       showModalBottomSheet(
         useRootNavigator: true,
@@ -55,54 +46,52 @@ class Song extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => playerScreen(context),
-      child: Container(
-        margin: const EdgeInsets.only(
-          left: 16.0,
-          right: 8.0,
-          top: 8.0,
-          bottom: 8.0,
-        ),
+      child: SizedBox(
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Artwork(
-              id: song.id,
-              type: ArtworkType.AUDIO,
-              borderRadius: 4.0,
-              containerSize: 50.0,
-            ),
-            const SizedBox(width: 12.0),
-            Expanded(
-              child: SizedBox(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      song.title,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 14.0,
-                        /* fontWeight: FontWeight.w500, */
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                    ),
-                    const SizedBox(height: 6.0),
-                    Text(
-                      song.artist ?? 'no artist',
-                      style: TextStyle(
-                        color: CupertinoColors.systemGrey.darkColor,
-                        fontSize: 12.0,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                    )
-                  ],
+            Row(
+              children: <Widget>[
+                Artwork(
+                  id: song.id,
+                  type: ArtworkType.AUDIO,
+                  borderRadius: 6.0,
+                  containerSize: 50.0,
                 ),
-              ),
+                const SizedBox(width: 12.0),
+                SizedBox(
+                  width: 224.0,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        song.title,
+                        style: TextStyle(
+                          color: CupertinoColors.label.darkColor,
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                      ),
+                      const SizedBox(height: 6.0),
+                      Text(
+                        song.artist ?? 'no artist',
+                        style: TextStyle(
+                          color: CupertinoColors.secondaryLabel.darkColor,
+                          fontSize: 12.0,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
             SonorIconButton(
               icon: SonorIcons.more_bold,
-              color: CupertinoColors.systemGrey.darkColor,
+              color: CupertinoColors.label.darkColor,
             )
           ],
         ),
