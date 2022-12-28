@@ -48,7 +48,7 @@ class _SongsScreenState extends State<SongsScreen> {
         return ListView.separated(
           separatorBuilder: (context, index) {
             return const SizedBox(
-              height: 16.0,
+              height: 20.0,
             );
           },
           physics: const BouncingScrollPhysics(),
