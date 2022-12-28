@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
+import 'package:sonor/providers/song_playing_provider.dart';
 
 import 'package:sonor/widgets/widgets.dart';
 import 'package:sonor/icons/icons.dart';
@@ -22,9 +25,16 @@ class Sonor extends StatelessWidget {
       ),
     );
 
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerConfig: router(),
+    return MultiProvider(
+      providers: <SingleChildWidget>[
+        ChangeNotifierProvider<SongPlayingProvider>(
+          create: (context) => SongPlayingProvider(),
+        ),
+      ],
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerConfig: router(),
+      ),
     );
   }
 }

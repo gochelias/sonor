@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
-import 'package:sonor/icons/icons.dart';
+import 'package:provider/provider.dart';
 
 import 'package:sonor/widgets/widgets.dart';
+import 'package:sonor/icons/icons.dart';
+import 'package:sonor/providers/providers.dart';
 
 class Song extends StatelessWidget {
   const Song({
@@ -18,6 +20,13 @@ class Song extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SongPlaying songPlaying = SongPlaying(
+      song.id,
+      song.uri!,
+      song.title,
+      song.artist ?? 'No artist',
+    );
+
     void playerScreen(BuildContext context) {
       showModalBottomSheet(
         useRootNavigator: true,
@@ -45,7 +54,10 @@ class Song extends StatelessWidget {
 
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () => playerScreen(context),
+      onTap: () => {
+        playerScreen(context),
+        context.read<SongPlayingProvider>().setSong(songPlaying, audioPlayer),
+      },
       child: SizedBox(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

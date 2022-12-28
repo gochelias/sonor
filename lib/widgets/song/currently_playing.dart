@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
+import 'package:on_audio_query/on_audio_query.dart';
+import 'package:provider/provider.dart';
+import 'package:sonor/providers/song_playing_provider.dart';
 
 import 'package:sonor/widgets/widgets.dart';
 import 'package:sonor/icons/icons.dart';
@@ -20,6 +23,12 @@ class CurrentlyPlaying extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final SongPlayingProvider songPlayingWatch =
+        context.watch<SongPlayingProvider>();
+
+    final SongPlayingProvider songPlayingRead =
+        context.read<SongPlayingProvider>();
+
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -46,14 +55,12 @@ class CurrentlyPlaying extends StatelessWidget {
                           Radius.circular(6.0),
                         ),
                       ),
-                      child: artwork ??
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: SvgPicture.asset(
-                              SonorIcons.musicnote_bold,
-                              color: CupertinoColors.secondaryLabel.darkColor,
-                            ),
-                          ),
+                      child: Artwork(
+                        id: songPlayingWatch.songPlaying.id,
+                        type: ArtworkType.AUDIO,
+                        containerSize: 40.0,
+                        borderRadius: 6.0,
+                      ),
                     ),
                     const SizedBox(width: 10.0),
                     SizedBox(
@@ -62,7 +69,7 @@ class CurrentlyPlaying extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            name,
+                            songPlayingWatch.songPlaying.name,
                             style: TextStyle(
                               color: CupertinoColors.label.darkColor,
                               fontSize: 12.0,
@@ -73,7 +80,7 @@ class CurrentlyPlaying extends StatelessWidget {
                           ),
                           const SizedBox(height: 4.0),
                           Text(
-                            artist,
+                            songPlayingWatch.songPlaying.artist,
                             style: TextStyle(
                               color: CupertinoColors.secondaryLabel.darkColor,
                               fontSize: 8.0,
@@ -87,17 +94,22 @@ class CurrentlyPlaying extends StatelessWidget {
                   ],
                 ),
                 Row(
-                  children: const <Widget>[
+                  children: <Widget>[
                     SonorIconButton(
-                      icon: SonorIcons.play_bold,
+                      onTap: () {
+                        songPlayingRead.setState(!songPlayingWatch.isPlaying);
+                      },
+                      icon: songPlayingWatch.isPlaying
+                          ? SonorIcons.pause_bold
+                          : SonorIcons.play_bold,
                       color: CupertinoColors.white,
                     ),
-                    SizedBox(width: 8.0),
-                    SonorIconButton(
+                    const SizedBox(width: 8.0),
+                    const SonorIconButton(
                       icon: SonorIcons.next_bold,
                       color: CupertinoColors.white,
                     ),
-                    SizedBox(width: 6.0),
+                    const SizedBox(width: 6.0),
                   ],
                 ),
               ],
