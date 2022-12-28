@@ -120,7 +120,7 @@ class _SonorStatefullWidgetState extends State<SonorStatefullWidget> {
               SonorIcons.music_library_linear,
               color: CupertinoColors.secondaryLabel.darkColor,
             ),
-            label: 'Playlist',
+            label: 'Library',
           ),
         ],
       ),
