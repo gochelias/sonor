@@ -68,7 +68,7 @@ class Song extends StatelessWidget {
                   id: song.id,
                   type: ArtworkType.AUDIO,
                   borderRadius: 6.0,
-                  containerSize: 50.0,
+                  containerSize: 48.0,
                 ),
                 const SizedBox(width: 12.0),
                 SizedBox(
@@ -86,7 +86,7 @@ class Song extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                       ),
-                      const SizedBox(height: 6.0),
+                      const SizedBox(height: 4.0),
                       Text(
                         song.artist ?? 'no artist',
                         style: TextStyle(
