@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:sonor/greetings.dart';
 import 'package:sonor/icons/icons.dart';
@@ -48,14 +49,15 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   Row(
-                    children: const <Widget>[
-                      SonorIconButton(
+                    children: <Widget>[
+                      const SonorIconButton(
                         icon: SonorIcons.search_linear,
                         size: 24.0,
                         color: Colors.white,
                       ),
-                      SizedBox(width: 16.0),
+                      const SizedBox(width: 16.0),
                       SonorIconButton(
+                        onTap: () => context.goNamed('settings'),
                         icon: SonorIcons.settings_linear,
                         size: 24.0,
                         color: Colors.white,

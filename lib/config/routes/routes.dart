@@ -28,6 +28,13 @@ router() {
             },
             routes: <RouteBase>[
               GoRoute(
+                name: 'settings',
+                path: 'settings',
+                builder: (context, state) {
+                  return const SettingsScreen();
+                },
+              ),
+              GoRoute(
                 path: 'songs',
                 pageBuilder: (context, state) {
                   return const NoTransitionPage(child: SongsScreen());
