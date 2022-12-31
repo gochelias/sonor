@@ -1,40 +1,51 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import 'package:sonor/providers/song_playing_provider.dart';
 
+import 'package:sonor/providers/providers.dart';
+import 'package:sonor/config/routes/routes.dart';
+import 'package:sonor/config/themes/themes.dart';
 import 'package:sonor/widgets/widgets.dart';
 import 'package:sonor/icons/icons.dart';
-import 'package:sonor/config/routes/routes.dart';
 
-void main() => runApp(const Sonor());
+void main() => runApp(const App());
+
+class App extends StatelessWidget {
+  const App({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: <SingleChildWidget>[
+        ChangeNotifierProvider<AppPreferencesProvider>(
+          create: (_) => AppPreferencesProvider()..initialize(),
+        ),
+        ChangeNotifierProvider<SongPlayingProvider>(
+          create: (context) => SongPlayingProvider(),
+        ),
+      ],
+      child: const Sonor(),
+    );
+  }
+}
 
 class Sonor extends StatelessWidget {
   const Sonor({super.key});
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: Color(0xFF000000),
-        statusBarIconBrightness: Brightness.light,
-      ),
-    );
+    AppPreferencesProvider appPreferencesWatch =
+        context.watch<AppPreferencesProvider>();
 
-    return MultiProvider(
-      providers: <SingleChildWidget>[
-        ChangeNotifierProvider<SongPlayingProvider>(
-          create: (context) => SongPlayingProvider(),
-        ),
-      ],
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        routerConfig: router(),
-      ),
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      themeMode: appPreferencesWatch.getThemeMode(),
+      theme: lightTheme(),
+      darkTheme: darkTheme(),
+      routerConfig: router(),
     );
   }
 }
@@ -70,26 +81,22 @@ class _SonorStatefullWidgetState extends State<SonorStatefullWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF000000),
-      body: SafeArea(
-        child: SizedBox.expand(
-          child: Stack(
-            children: <Widget>[
-              Center(
-                child: SizedBox(
-                  /* width: 320.0, */
-                  child: widget.child,
-                ),
+      body: SizedBox.expand(
+        child: Stack(
+          children: <Widget>[
+            Center(
+              child: SizedBox(
+                child: widget.child,
               ),
-              const Positioned(
-                bottom: 0.0,
-                child: CurrentlyPlaying(
-                  name: 'Song Name',
-                  artist: 'Artist Name',
-                ),
-              )
-            ],
-          ),
+            ),
+            const Positioned(
+              bottom: 0.0,
+              child: CurrentlyPlaying(
+                name: 'Song Name',
+                artist: 'Artist Name',
+              ),
+            )
+          ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
