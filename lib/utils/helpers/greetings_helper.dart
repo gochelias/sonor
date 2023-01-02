@@ -1,3 +1,4 @@
+/// Returns a greeting depending on the time
 String greetings() {
   final hour = DateTime.now().hour;
   String greet = 'Hello 👋';

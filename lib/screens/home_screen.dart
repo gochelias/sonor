@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:sonor/greetings.dart';
 import 'package:sonor/icons/icons.dart';
 import 'package:sonor/widgets/widgets.dart';
 import 'package:sonor/config/themes/themes.dart';
+import 'package:sonor/utils/helpers/helpers.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
