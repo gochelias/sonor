@@ -1,25 +1,15 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:provider/provider.dart';
-import 'package:sonor/providers/song_playing_provider.dart';
 
+import 'package:sonor/providers/providers.dart';
 import 'package:sonor/widgets/widgets.dart';
 import 'package:sonor/icons/icons.dart';
 
 class CurrentlyPlaying extends StatelessWidget {
   const CurrentlyPlaying({
     super.key,
-    this.artwork,
-    required this.name,
-    required this.artist,
   });
-
-  final Widget? artwork;
-  final String name;
-  final String artist;
 
   @override
   Widget build(BuildContext context) {
@@ -115,19 +105,6 @@ class CurrentlyPlaying extends StatelessWidget {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
-            child: ProgressBar(
-              barHeight: 2.0,
-              thumbRadius: 1.0,
-              thumbColor: Colors.transparent,
-              progressBarColor: CupertinoColors.white,
-              baseBarColor: CupertinoColors.black,
-              timeLabelLocation: TimeLabelLocation.none,
-              progress: Duration(seconds: 98),
-              total: Duration(seconds: 198),
-            ),
-          )
         ],
       ),
     );

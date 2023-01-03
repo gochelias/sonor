@@ -14,3 +14,5 @@ export 'package:sonor/widgets/icon_button_widget.dart';
 export 'package:sonor/widgets/card_playlist_widget.dart';
 export 'package:sonor/widgets/recently_played_witget.dart';
 export 'package:sonor/widgets/view_all_separator_widget.dart';
+export 'package:sonor/widgets/navbar_widget.dart';
+export 'package:sonor/widgets/song/currently_playing.dart';

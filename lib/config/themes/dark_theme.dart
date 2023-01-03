@@ -17,5 +17,8 @@ ThemeData darkTheme() {
       ),
       backgroundColor: CupertinoColors.systemBackground.darkColor,
     ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: CupertinoColors.darkBackgroundGray.withOpacity(0.8),
+    ),
   );
 }

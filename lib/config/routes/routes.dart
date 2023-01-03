@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:sonor/main.dart';
 import 'package:sonor/screens/albums_screen.dart';
 import 'package:sonor/screens/screens.dart';
+import 'package:sonor/utils/ui/ui.dart';
 
 router() {
   final GlobalKey<NavigatorState> rootNavigatorKey =
@@ -18,7 +18,7 @@ router() {
       ShellRoute(
         navigatorKey: shellNavigatorKey,
         builder: (BuildContext context, GoRouterState state, Widget child) {
-          return SonorStatefullWidget(child: child);
+          return SonorShellLayout(child: child);
         },
         routes: [
           GoRoute(
@@ -27,13 +27,6 @@ router() {
               return const NoTransitionPage(child: HomeScreen());
             },
             routes: <RouteBase>[
-              GoRoute(
-                name: 'settings',
-                path: 'settings',
-                builder: (context, state) {
-                  return const SettingsScreen();
-                },
-              ),
               GoRoute(
                 path: 'songs',
                 pageBuilder: (context, state) {
