@@ -7,15 +7,15 @@ ThemeData darkTheme() {
 
   return base.copyWith(
     brightness: Brightness.dark,
-    backgroundColor: const Color(0xFF0f0f0f),
-    scaffoldBackgroundColor: const Color(0xFF0f0f0f),
+    backgroundColor: CupertinoColors.systemBackground.darkColor,
+    scaffoldBackgroundColor: CupertinoColors.systemBackground.darkColor,
     canvasColor: CupertinoColors.systemGrey6.darkColor,
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: Color(0xFF0f0f0f),
+        statusBarColor: CupertinoColors.systemBackground.darkColor,
         statusBarIconBrightness: Brightness.light,
       ),
-      backgroundColor: Color(0xFF0f0f0f),
+      backgroundColor: CupertinoColors.systemBackground.darkColor,
     ),
   );
 }
