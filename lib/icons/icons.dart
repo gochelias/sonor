@@ -27,4 +27,5 @@ class SonorIcons {
   static const settings_linear = '$_path/settings_linear.svg';
   static const music_library_linear = '$_path/music_library_linear.svg';
   static const music_library_bold = '$_path/music_library_bold.svg';
+  static const moon_bold = '$_path/moon_bold.svg';
 }

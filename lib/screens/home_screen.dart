@@ -1,14 +1,32 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import 'package:sonor/icons/icons.dart';
+import 'package:sonor/screens/screens.dart';
 import 'package:sonor/widgets/widgets.dart';
 import 'package:sonor/config/themes/themes.dart';
 import 'package:sonor/utils/helpers/helpers.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
+  void settingsModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      useRootNavigator: true,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext context) {
+        return DraggableScrollableSheet(
+          expand: false,
+          initialChildSize: 0.86,
+          builder: (BuildContext context, ScrollController scrollController) {
+            return const SettingsScreen();
+          },
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +64,7 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: <Widget>[
           SonorIconButton(
-            onTap: () => context.goNamed('settings'),
+            onTap: () => settingsModal(context),
             icon: SonorIcons.settings_linear,
             size: 24.0,
             color: Colors.white,
