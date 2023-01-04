@@ -121,13 +121,9 @@ class _PlayerState extends State<Player> {
             height: 60.0,
             margin: const EdgeInsets.only(bottom: 52.0, top: 32.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                SonorIconButton(
-                  icon: SonorIcons.heart_bold,
-                  color: CupertinoColors.systemPink.darkColor,
-                ),
                 SonorIconButton(
                   onTap: () => buttonPrevious(),
                   icon: SonorIcons.previous_bold,
@@ -147,10 +143,6 @@ class _PlayerState extends State<Player> {
                   color: CupertinoColors.white,
                   size: 36.0,
                 ),
-                SonorIconButton(
-                  icon: SonorIcons.repeate_one_linear,
-                  color: CupertinoColors.systemGrey.darkColor,
-                ),
               ],
             ),
           ),
@@ -159,7 +151,7 @@ class _PlayerState extends State<Player> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 SonorIconButton(
-                  icon: SonorIcons.download_linear,
+                  icon: SonorIcons.repeate_linear,
                   color: CupertinoColors.systemGrey.darkColor,
                 ),
                 SonorIconButton(
