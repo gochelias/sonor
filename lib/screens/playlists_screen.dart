@@ -23,7 +23,7 @@ class PlaylistScreen extends StatelessWidget {
           left: 16.0,
           right: 16.0,
           top: 16.0,
-          bottom: 80.0,
+          bottom: 128.0,
         ),
         itemBuilder: (context, index) {
           return const CardPlaylist(
