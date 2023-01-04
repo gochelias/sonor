@@ -2,10 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+import 'package:provider/provider.dart';
 
 import 'package:sonor/icons/icons.dart';
+import 'package:sonor/providers/providers.dart';
 import 'package:sonor/widgets/widgets.dart';
-import 'package:sonor/widgets/player/player_slider_widget.dart';
 
 class Player extends StatefulWidget {
   const Player({
@@ -60,6 +61,9 @@ class _PlayerState extends State<Player> {
 
   @override
   Widget build(BuildContext context) {
+    SongPlayingProvider songPlayingWatch = context.watch<SongPlayingProvider>();
+    SongPlayingProvider songPlayingRead = context.read<SongPlayingProvider>();
+
     return Container(
       padding: const EdgeInsets.all(20.0),
       decoration: const BoxDecoration(
@@ -78,7 +82,7 @@ class _PlayerState extends State<Player> {
               borderRadius: BorderRadius.circular(12.0),
             ),
             child: Artwork(
-              id: widget.song.id,
+              id: songPlayingWatch.songPlaying.id,
               type: ArtworkType.AUDIO,
               size: 400,
               quality: 400,
@@ -94,7 +98,7 @@ class _PlayerState extends State<Player> {
             child: Column(
               children: <Widget>[
                 Text(
-                  widget.song.title,
+                  songPlayingWatch.songPlaying.name,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,
@@ -105,7 +109,7 @@ class _PlayerState extends State<Player> {
                 ),
                 const SizedBox(height: 4.0),
                 Text(
-                  widget.song.artist ?? 'no artist',
+                  songPlayingWatch.songPlaying.artist,
                   style: TextStyle(
                     color: CupertinoColors.systemGrey.darkColor,
                     fontSize: 12.0,
@@ -131,9 +135,12 @@ class _PlayerState extends State<Player> {
                   size: 36.0,
                 ),
                 SonorIconButton(
-                  onTap: () => buttonPlayOrPause(),
-                  icon:
-                      isPlaying ? SonorIcons.play_bold : SonorIcons.pause_bold,
+                  onTap: () {
+                    songPlayingRead.setState(!songPlayingWatch.isPlaying);
+                  },
+                  icon: songPlayingWatch.isPlaying
+                      ? SonorIcons.pause_bold
+                      : SonorIcons.play_bold,
                   color: CupertinoColors.white,
                   size: 44.0,
                 ),
