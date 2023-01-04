@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:provider/provider.dart';
 
@@ -8,61 +7,16 @@ import 'package:sonor/icons/icons.dart';
 import 'package:sonor/providers/providers.dart';
 import 'package:sonor/widgets/widgets.dart';
 
-class Player extends StatefulWidget {
-  const Player({
-    super.key,
-    required this.song,
-    required this.player,
-  });
-
-  final SongModel song;
-  final AudioPlayer player;
-
-  @override
-  State<Player> createState() => _PlayerState();
-}
-
-class _PlayerState extends State<Player> {
-  bool isPlaying = false;
-
-  @override
-  void initState() {
-    super.initState();
-    startSong();
-  }
-
-  void startSong() async {
-    await widget.player
-        .setAudioSource(
-          AudioSource.uri(
-            Uri.parse(widget.song.uri!),
-          ),
-        )
-        .catchError((onError) => print(onError));
-
-    widget.player.play();
-  }
-
-  void buttonPrevious() {}
-
-  void buttonPlayOrPause() {
-    setState(() {
-      isPlaying = !isPlaying;
-
-      if (isPlaying) {
-        widget.player.pause();
-      } else {
-        widget.player.play();
-      }
-    });
-  }
-
-  void buttonNext() {}
+class PlayerScreen extends StatelessWidget {
+  const PlayerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     SongPlayingProvider songPlayingWatch = context.watch<SongPlayingProvider>();
     SongPlayingProvider songPlayingRead = context.read<SongPlayingProvider>();
+
+    void buttonPrevious() {}
+    void buttonNext() {}
 
     return Container(
       padding: const EdgeInsets.all(20.0),
@@ -92,7 +46,7 @@ class _PlayerState extends State<Player> {
             ),
           ),
           const SizedBox(height: 20.0),
-          SonorSlider(player: widget.player),
+          /* SonorSlider(player: widget.player), */
           Container(
             margin: const EdgeInsets.only(top: 80.0),
             child: Column(
