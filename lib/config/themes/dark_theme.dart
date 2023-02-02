@@ -5,20 +5,23 @@ import 'package:flutter/services.dart';
 ThemeData darkTheme() {
   final ThemeData base = ThemeData.dark();
 
+  const Color bgColor = Color(0xFF0B0B0B);
+
   return base.copyWith(
     brightness: Brightness.dark,
-    backgroundColor: CupertinoColors.systemBackground.darkColor,
-    scaffoldBackgroundColor: CupertinoColors.systemBackground.darkColor,
+    backgroundColor: bgColor,
+    scaffoldBackgroundColor: bgColor,
     canvasColor: CupertinoColors.systemGrey6.darkColor,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: CupertinoColors.systemBackground.darkColor,
+        statusBarColor: bgColor,
         statusBarIconBrightness: Brightness.light,
       ),
-      backgroundColor: CupertinoColors.systemBackground.darkColor,
+      backgroundColor: bgColor,
+      shadowColor: Colors.transparent,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: CupertinoColors.darkBackgroundGray.withOpacity(0.8),
+      backgroundColor: bgColor.withOpacity(0.6),
     ),
   );
 }
