@@ -19,7 +19,10 @@ class App extends StatelessWidget {
           create: (_) => AppPreferencesProvider()..initialize(),
         ),
         ChangeNotifierProvider<SongPlayingProvider>(
-          create: (context) => SongPlayingProvider(),
+          create: (_) => SongPlayingProvider(),
+        ),
+        ChangeNotifierProvider<SongPlayerProvider>(
+          create: (_) => SongPlayerProvider(),
         ),
       ],
       child: const Sonor(),

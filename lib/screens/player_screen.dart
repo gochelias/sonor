@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:provider/provider.dart';
 
@@ -8,15 +9,16 @@ import 'package:sonor/providers/providers.dart';
 import 'package:sonor/widgets/widgets.dart';
 
 class PlayerScreen extends StatelessWidget {
-  const PlayerScreen({super.key});
+  const PlayerScreen({
+    super.key,
+    required this.audioPlayer,
+  });
+
+  final AudioPlayer audioPlayer;
 
   @override
   Widget build(BuildContext context) {
     SongPlayingProvider songPlayingWatch = context.watch<SongPlayingProvider>();
-    SongPlayingProvider songPlayingRead = context.read<SongPlayingProvider>();
-
-    void buttonPrevious() {}
-    void buttonNext() {}
 
     return Container(
       padding: const EdgeInsets.all(20.0),
@@ -46,13 +48,15 @@ class PlayerScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20.0),
-          /* SonorSlider(player: widget.player), */
+          PlayerSlider(
+            audioPlayer: audioPlayer,
+          ),
           Container(
             margin: const EdgeInsets.only(top: 80.0),
             child: Column(
               children: <Widget>[
                 Text(
-                  songPlayingWatch.songPlaying.name,
+                  songPlayingWatch.songPlaying.title,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,
@@ -75,38 +79,7 @@ class PlayerScreen extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            height: 60.0,
-            margin: const EdgeInsets.only(bottom: 52.0, top: 32.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                SonorIconButton(
-                  onTap: () => buttonPrevious(),
-                  icon: SonorIcons.previous_bold,
-                  color: CupertinoColors.white,
-                  size: 36.0,
-                ),
-                SonorIconButton(
-                  onTap: () {
-                    songPlayingRead.setState(!songPlayingWatch.isPlaying);
-                  },
-                  icon: songPlayingWatch.isPlaying
-                      ? SonorIcons.pause_bold
-                      : SonorIcons.play_bold,
-                  color: CupertinoColors.white,
-                  size: 44.0,
-                ),
-                SonorIconButton(
-                  onTap: () => buttonNext(),
-                  icon: SonorIcons.next_bold,
-                  color: CupertinoColors.white,
-                  size: 36.0,
-                ),
-              ],
-            ),
-          ),
+          const PlayerControls(),
           SizedBox(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

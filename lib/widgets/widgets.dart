@@ -16,3 +16,5 @@ export 'package:sonor/widgets/view_all_separator_widget.dart';
 export 'package:sonor/widgets/navbar_widget.dart';
 export 'package:sonor/widgets/song/currently_playing.dart';
 export 'package:sonor/widgets/player/player_slider_widget.dart';
+export 'package:sonor/widgets/player/player_controls_widget.dart';
+export 'package:sonor/widgets/icon_button_widget.dart';

@@ -23,12 +23,11 @@ class Song extends StatelessWidget {
   Widget build(BuildContext context) {
     SongPlaying songPlaying = SongPlaying(
       song.id,
-      song.uri!,
       song.title,
-      song.artist ?? 'No artist',
+      song.artist ?? '<unknown>',
     );
 
-    void playerScreen(BuildContext context) {
+    void openPlayerScreen(BuildContext context) {
       showModalBottomSheet(
         useRootNavigator: true,
         context: context,
@@ -40,8 +39,10 @@ class Song extends StatelessWidget {
             builder: (context, scrollController) {
               return MediaQuery(
                 data: MediaQueryData.fromWindow(WidgetsBinding.instance.window),
-                child: const SafeArea(
-                  child: PlayerScreen(),
+                child: SafeArea(
+                  child: PlayerScreen(
+                    audioPlayer: audioPlayer,
+                  ),
                 ),
               );
             },
@@ -53,8 +54,9 @@ class Song extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => {
-        playerScreen(context),
-        context.read<SongPlayingProvider>().setSong(songPlaying, audioPlayer),
+        openPlayerScreen(context),
+        context.read<SongPlayerProvider>().setSong(song.uri!, audioPlayer),
+        context.read<SongPlayingProvider>().setSong(songPlaying)
       },
       child: SizedBox(
         child: Row(
@@ -86,7 +88,7 @@ class Song extends StatelessWidget {
                       ),
                       const SizedBox(height: 4.0),
                       Text(
-                        song.artist ?? 'no artist',
+                        song.artist ?? '<unknown>',
                         style: TextStyle(
                           color: CupertinoColors.secondaryLabel.darkColor,
                           fontSize: 12.0,

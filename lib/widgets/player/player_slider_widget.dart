@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 
-class SonorSlider extends StatefulWidget {
-  const SonorSlider({super.key, required this.player});
+class PlayerSlider extends StatefulWidget {
+  const PlayerSlider({
+    super.key,
+    required this.audioPlayer,
+  });
 
-  final AudioPlayer player;
+  final AudioPlayer audioPlayer;
 
   @override
-  State<SonorSlider> createState() => _SonorSliderState();
+  State<PlayerSlider> createState() => _PlayerSliderState();
 }
 
-class _SonorSliderState extends State<SonorSlider> {
+class _PlayerSliderState extends State<PlayerSlider> {
   Duration duration = const Duration();
   Duration position = const Duration();
 
@@ -20,18 +23,18 @@ class _SonorSliderState extends State<SonorSlider> {
   void initState() {
     super.initState();
 
-    widget.player.durationStream.listen((event) {
+    widget.audioPlayer.durationStream.listen((Duration? d) {
       if (mounted) {
         setState(() {
-          duration = event!;
+          duration = d!;
         });
       }
     });
 
-    widget.player.positionStream.listen((event) {
+    widget.audioPlayer.positionStream.listen((Duration p) {
       if (mounted) {
         setState(() {
-          position = event;
+          position = p;
         });
       }
     });
@@ -55,8 +58,8 @@ class _SonorSliderState extends State<SonorSlider> {
             ),
             progress: Duration(milliseconds: position.inMilliseconds.toInt()),
             total: Duration(milliseconds: duration.inMilliseconds.toInt()),
-            onSeek: (value) {
-              widget.player.seek(value);
+            onSeek: (Duration value) {
+              widget.audioPlayer.seek(value);
             },
           ),
         ],
