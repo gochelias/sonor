@@ -1,23 +1,23 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class NavbarItemIcon extends StatelessWidget {
-  const NavbarItemIcon({
+class NavbarIcon extends StatelessWidget {
+  const NavbarIcon({
     super.key,
     required this.icon,
-    required this.selected,
+    required this.color,
   });
 
   final String icon;
-  final bool selected;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 6.0),
+      padding: const EdgeInsets.only(bottom: 4.0),
       child: SvgPicture.asset(
         icon,
-        color: selected ? const Color(0xFFff385f) : const Color(0xFF626266),
+        color: color,
       ),
     );
   }

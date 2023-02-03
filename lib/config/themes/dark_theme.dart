@@ -22,6 +22,8 @@ ThemeData darkTheme() {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: bgColor.withOpacity(0.6),
+      selectedItemColor: CupertinoColors.label.darkColor,
+      unselectedItemColor: CupertinoColors.secondaryLabel.darkColor,
     ),
   );
 }

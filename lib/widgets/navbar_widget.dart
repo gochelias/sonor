@@ -38,45 +38,45 @@ class _SonorBottomNavbarState extends State<SonorBottomNavbar> {
       child: Column(
         children: <Widget>[
           const CurrentlyPlaying(),
-          const SizedBox(height: 8.0),
+          const SizedBox(height: 4.0),
           ClipRect(
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
               child: BottomNavigationBar(
-                showSelectedLabels: false,
-                showUnselectedLabels: false,
+                selectedFontSize: 10.0,
+                unselectedFontSize: 10.0,
                 currentIndex: selectedIndex,
                 onTap: (int index) => onItemTapped(index, context),
                 items: <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
-                    activeIcon: SvgPicture.asset(
-                      SonorIcons.home_bold,
-                      color: CupertinoColors.systemPink.darkColor,
+                    activeIcon: NavbarIcon(
+                      icon: SonorIcons.home_bold,
+                      color: CupertinoColors.label.darkColor,
                     ),
-                    icon: SvgPicture.asset(
-                      SonorIcons.home_linear,
+                    icon: NavbarIcon(
+                      icon: SonorIcons.home_linear,
                       color: CupertinoColors.secondaryLabel.darkColor,
                     ),
                     label: 'Home',
                   ),
                   BottomNavigationBarItem(
-                    activeIcon: SvgPicture.asset(
-                      SonorIcons.search_bold,
-                      color: CupertinoColors.systemPink.darkColor,
+                    activeIcon: NavbarIcon(
+                      icon: SonorIcons.search_bold,
+                      color: CupertinoColors.label.darkColor,
                     ),
-                    icon: SvgPicture.asset(
-                      SonorIcons.search_linear,
+                    icon: NavbarIcon(
+                      icon: SonorIcons.search_linear,
                       color: CupertinoColors.secondaryLabel.darkColor,
                     ),
                     label: 'Explore',
                   ),
                   BottomNavigationBarItem(
-                    activeIcon: SvgPicture.asset(
-                      SonorIcons.music_library_bold,
-                      color: CupertinoColors.systemPink.darkColor,
+                    activeIcon: NavbarIcon(
+                      icon: SonorIcons.music_library_bold,
+                      color: CupertinoColors.label.darkColor,
                     ),
-                    icon: SvgPicture.asset(
-                      SonorIcons.music_library_linear,
+                    icon: NavbarIcon(
+                      icon: SonorIcons.music_library_linear,
                       color: CupertinoColors.secondaryLabel.darkColor,
                     ),
                     label: 'Library',
