@@ -48,13 +48,13 @@ class _SongsScreenState extends State<SongsScreen> {
         return ListView.separated(
           separatorBuilder: (context, index) {
             return const SizedBox(
-              height: 20.0,
+              height: 6.0,
             );
           },
           physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.only(
-            left: 16.0,
-            right: 8.0,
+            left: 10.0,
+            right: 10.0,
             top: 16.0,
             bottom: 80.0,
           ),

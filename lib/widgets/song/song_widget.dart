@@ -51,14 +51,22 @@ class Song extends StatelessWidget {
       );
     }
 
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return InkWell(
+      borderRadius: BorderRadius.circular(12),
+      highlightColor: CupertinoColors.systemGrey6.darkColor,
+      splashColor: Colors.transparent,
       onTap: () => {
         openPlayerScreen(context),
         context.read<SongPlayerProvider>().setSong(song.uri!, audioPlayer),
         context.read<SongPlayingProvider>().setSong(songPlaying)
       },
-      child: SizedBox(
+      child: Container(
+        padding: const EdgeInsets.only(
+          left: 6.0,
+          right: 0.0,
+          top: 6.0,
+          bottom: 6.0,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -68,7 +76,7 @@ class Song extends StatelessWidget {
                   id: song.id,
                   type: ArtworkType.AUDIO,
                   borderRadius: 6.0,
-                  containerSize: 48.0,
+                  containerSize: 44.0,
                 ),
                 const SizedBox(width: 12.0),
                 SizedBox(
