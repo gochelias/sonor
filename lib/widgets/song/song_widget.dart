@@ -21,6 +21,9 @@ class Song extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final SongPlayingProvider songPlayingWatch =
+        context.watch<SongPlayingProvider>();
+
     SongPlaying songPlaying = SongPlaying(
       song.id,
       song.title,
@@ -87,7 +90,9 @@ class Song extends StatelessWidget {
                       Text(
                         song.title,
                         style: TextStyle(
-                          color: CupertinoColors.label.darkColor,
+                          color: songPlayingWatch.songPlaying.id == song.id
+                              ? CupertinoColors.systemPink.darkColor
+                              : CupertinoColors.label.darkColor,
                           fontSize: 14.0,
                           fontWeight: FontWeight.w500,
                         ),
