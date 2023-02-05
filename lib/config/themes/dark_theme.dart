@@ -21,7 +21,7 @@ ThemeData darkTheme() {
       shadowColor: Colors.transparent,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: bgColor.withOpacity(0.6),
+      backgroundColor: bgColor,
       selectedItemColor: CupertinoColors.label.darkColor,
       unselectedItemColor: CupertinoColors.secondaryLabel.darkColor,
     ),
