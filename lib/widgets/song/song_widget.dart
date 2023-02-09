@@ -59,9 +59,10 @@ class Song extends StatelessWidget {
       highlightColor: CupertinoColors.systemGrey6.darkColor,
       splashColor: Colors.transparent,
       onTap: () => {
-        openPlayerScreen(context),
+        context.read<SongPlayingProvider>().setSong(songPlaying),
         context.read<SongPlayerProvider>().setSong(song.uri!, audioPlayer),
-        context.read<SongPlayingProvider>().setSong(songPlaying)
+        openPlayerScreen(context),
+        context.read<SongPlayingProvider>().setIsActive(false),
       },
       child: Container(
         padding: const EdgeInsets.only(

@@ -53,12 +53,21 @@ class SongPlaying {
 /// Data about the song currently playing
 /// [id] [title] [artist]
 class SongPlayingProvider with ChangeNotifier {
+  bool _isActive = true;
   SongPlaying _songPlaying = SongPlaying(0, 'No Playing', 'No Playing');
+
+  bool get isActive => _isActive;
   SongPlaying get songPlaying => _songPlaying;
 
   /// Set a new song [song]
   void setSong(SongPlaying song) {
     _songPlaying = song;
+
+    notifyListeners();
+  }
+
+  void setIsActive(bool state) {
+    _isActive = state;
 
     notifyListeners();
   }
