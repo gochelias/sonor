@@ -28,4 +28,7 @@ class SonorIcons {
   static const music_library_linear = '$_path/music_library_linear.svg';
   static const music_library_bold = '$_path/music_library_bold.svg';
   static const moon_bold = '$_path/moon_bold.svg';
+  static const add_square_linear = '$_path/add_square_linear.svg';
+  static const add_square_bold = '$_path/add_square_bold.svg';
+  static const grid_linear = '$_path/grid_linear.svg';
 }

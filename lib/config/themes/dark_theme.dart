@@ -7,6 +7,10 @@ ThemeData darkTheme() {
 
   const Color bgColor = Color(0xFF0B0B0B);
 
+  Color thumbColor(Set<MaterialState> states) {
+    return CupertinoColors.systemGrey6.darkColor;
+  }
+
   return base.copyWith(
     brightness: Brightness.dark,
     backgroundColor: bgColor,
@@ -19,6 +23,9 @@ ThemeData darkTheme() {
       ),
       backgroundColor: bgColor,
       shadowColor: Colors.transparent,
+    ),
+    scrollbarTheme: ScrollbarThemeData(
+      thumbColor: MaterialStateProperty.resolveWith(thumbColor),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: bgColor,
