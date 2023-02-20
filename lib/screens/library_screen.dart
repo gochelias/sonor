@@ -19,8 +19,8 @@ class LibraryScreen extends StatelessWidget {
             'Your Library',
             style: TextStyle(
               color: CupertinoColors.label.darkColor,
-              fontSize: 22.0,
-              fontWeight: FontWeight.normal,
+              fontSize: 18.0,
+              fontWeight: FontWeight.w500,
             ),
           ),
           actions: const <Widget>[
@@ -41,17 +41,25 @@ class LibraryScreen extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: TabBar(
                 isScrollable: true,
+                overlayColor: MaterialStateProperty.resolveWith(
+                  (states) => Colors.transparent,
+                ),
                 splashFactory: NoSplash.splashFactory,
                 physics: const BouncingScrollPhysics(),
-                indicatorSize: TabBarIndicatorSize.label,
-                labelColor: CupertinoColors.systemPink.darkColor,
-                labelStyle: const TextStyle(fontSize: 16.0),
-                unselectedLabelColor: CupertinoColors.secondaryLabel.darkColor,
-                indicatorColor: CupertinoColors.systemPink.darkColor,
+                indicator: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100.0),
+                ),
+                labelColor: CupertinoColors.label.darkColor,
+                labelStyle: const TextStyle(
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.w600,
+                ),
+                unselectedLabelColor: CupertinoColors.systemGrey2.darkColor,
                 padding: const EdgeInsets.symmetric(horizontal: 6.0),
                 labelPadding: const EdgeInsets.only(
-                  left: 10.0,
-                  right: 10.0,
+                  left: 8.0,
+                  right: 18.0,
+                  top: 6.0,
                   bottom: 6.0,
                 ),
                 tabs: const <Widget>[
@@ -88,3 +96,52 @@ class LibraryScreen extends StatelessWidget {
     );
   }
 }
+
+
+/* 
+
+Align(
+              alignment: Alignment.centerLeft,
+              child: TabBar(
+                isScrollable: true,
+                splashFactory: NoSplash.splashFactory,
+                physics: const BouncingScrollPhysics(),
+                indicator: BoxDecoration(
+                  /* color: CupertinoColors.systemPink.darkColor, */
+                  borderRadius: BorderRadius.circular(100.0),
+                  /* color: CupertinoColors.systemPink.darkColor, */
+                ),
+                indicatorSize: TabBarIndicatorSize.tab,
+                labelColor: CupertinoColors.label.darkColor,
+                labelStyle: const TextStyle(
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.w600,
+                ),
+                unselectedLabelColor: CupertinoColors.systemGrey2.darkColor,
+                /* unselectedLabelStyle: const TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w400,
+                ), */
+                /* indicatorColor: CupertinoColors.systemPink.darkColor, */
+                padding: const EdgeInsets.only(
+                  left: 16.0,
+                  right: 16.0,
+                  bottom: 16.0,
+                ),
+                labelPadding:
+                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
+                /* labelPadding: const EdgeInsets.only(
+                  left: 10.0,
+                  right: 10.0,
+                  bottom: 6.0,
+                ), */
+                tabs: const <Widget>[
+                  Text('Playlists'),
+                  Text('Songs'),
+                  Text('Artists'),
+                  Text('Albums'),
+                ],
+              ),
+            ),
+
+ */
