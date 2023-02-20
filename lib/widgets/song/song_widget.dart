@@ -30,7 +30,7 @@ class Song extends StatelessWidget {
       song.artist ?? '<unknown>',
     );
 
-    void openPlayerScreen(BuildContext context) {
+    /* void openPlayerScreen(BuildContext context) {
       showModalBottomSheet(
         useRootNavigator: true,
         context: context,
@@ -52,7 +52,7 @@ class Song extends StatelessWidget {
           );
         },
       );
-    }
+    } */
 
     return InkWell(
       borderRadius: BorderRadius.circular(12),
@@ -61,7 +61,7 @@ class Song extends StatelessWidget {
       onTap: () => {
         context.read<SongPlayingProvider>().setSong(songPlaying),
         context.read<SongPlayerProvider>().setSong(song.uri!, audioPlayer),
-        openPlayerScreen(context),
+        /* openPlayerScreen(context), */
         context.read<SongPlayingProvider>().setIsActive(false),
       },
       child: Container(
@@ -80,7 +80,7 @@ class Song extends StatelessWidget {
                   id: song.id,
                   type: ArtworkType.AUDIO,
                   borderRadius: 6.0,
-                  containerSize: 44.0,
+                  containerSize: 48.0,
                 ),
                 const SizedBox(width: 12.0),
                 SizedBox(
