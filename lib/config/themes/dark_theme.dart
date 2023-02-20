@@ -8,7 +8,7 @@ ThemeData darkTheme() {
   const Color bgColor = Color(0xFF0B0B0B);
 
   Color thumbColor(Set<MaterialState> states) {
-    return CupertinoColors.systemGrey6.darkColor;
+    return CupertinoColors.systemGrey4.darkColor;
   }
 
   return base.copyWith(
@@ -28,7 +28,7 @@ ThemeData darkTheme() {
       thumbColor: MaterialStateProperty.resolveWith(thumbColor),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: bgColor,
+      backgroundColor: CupertinoColors.darkBackgroundGray,
       selectedItemColor: CupertinoColors.label.darkColor,
       unselectedItemColor: CupertinoColors.secondaryLabel.darkColor,
     ),

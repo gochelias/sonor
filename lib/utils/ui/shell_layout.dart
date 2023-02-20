@@ -18,12 +18,14 @@ class SonorShellLayout extends StatelessWidget {
           children: <Widget>[
             child,
             const Positioned(
-              bottom: 0.0,
-              child: SonorBottomNavbar(),
+              bottom: 4.0,
+              child: CurrentlyPlaying(),
             )
           ],
         ),
       ),
+      extendBody: true,
+      bottomNavigationBar: const SonorBottomNavbar(),
     );
   }
 }
