@@ -5,7 +5,6 @@ import 'package:on_audio_query/on_audio_query.dart';
 import 'package:provider/provider.dart';
 
 import 'package:sonor/providers/providers.dart';
-import 'package:sonor/screens/screens.dart';
 import 'package:sonor/widgets/widgets.dart';
 import 'package:sonor/icons/icons.dart';
 

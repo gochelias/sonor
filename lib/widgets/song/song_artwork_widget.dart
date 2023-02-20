@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+
 import 'package:sonor/icons/icons.dart';
 
 class Artwork extends StatelessWidget {
