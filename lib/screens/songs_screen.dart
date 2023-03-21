@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'package:sonor/widgets/widgets.dart';
 
@@ -42,7 +44,15 @@ class _SongsScreenState extends State<SongsScreen> {
         ignoreCase: true,
       ),
       builder: (BuildContext context, AsyncSnapshot<List<SongModel>> snapshot) {
-        if (snapshot.data == null) return const CircularProgressIndicator();
+        if (snapshot.data == null) {
+          return Center(
+            child: SpinKitFadingCircle(
+              size: 40.0,
+              color: CupertinoColors.systemPink.darkColor,
+            ),
+          );
+        }
+
         if (snapshot.data!.isEmpty) return const Text('Not found');
 
         return ListView.separated(
