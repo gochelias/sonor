@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:provider/provider.dart';
@@ -29,57 +30,49 @@ class Song extends StatelessWidget {
       song.artist ?? '<unknown>',
     );
 
-    /* void openPlayerScreen(BuildContext context) {
-      showModalBottomSheet(
-        useRootNavigator: true,
-        context: context,
-        isScrollControlled: true,
-        backgroundColor: Colors.transparent,
-        builder: (context) {
-          return DraggableScrollableSheet(
-            initialChildSize: 1,
-            builder: (context, scrollController) {
-              return MediaQuery(
-                data: MediaQueryData.fromWindow(WidgetsBinding.instance.window),
-                child: SafeArea(
-                  child: PlayerScreen(
-                    audioPlayer: audioPlayer,
-                  ),
-                ),
-              );
-            },
-          );
-        },
-      );
-    } */
-
     return InkWell(
-      borderRadius: BorderRadius.circular(12),
-      highlightColor: CupertinoColors.systemGrey6.darkColor,
-      splashColor: Colors.transparent,
+      borderRadius: BorderRadius.circular(0),
+      splashColor: CupertinoColors.systemGrey4.darkColor,
       onTap: () => {
         context.read<SongPlayingProvider>().setSong(songPlaying),
         context.read<SongPlayerProvider>().setSong(song.uri!, audioPlayer),
-        /* openPlayerScreen(context), */
         context.read<SongPlayingProvider>().setIsActive(false),
       },
       child: Container(
-        padding: const EdgeInsets.only(
-          left: 6.0,
-          right: 0.0,
-          top: 6.0,
-          bottom: 6.0,
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16.0,
+          vertical: 10.0,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Row(
               children: <Widget>[
-                Artwork(
+                QueryArtworkWidget(
                   id: song.id,
                   type: ArtworkType.AUDIO,
-                  borderRadius: 6.0,
-                  containerSize: 48.0,
+                  artworkHeight: 48.0,
+                  artworkWidth: 48.0,
+                  keepOldArtwork: true,
+                  artworkFit: BoxFit.cover,
+                  artworkBorder: BorderRadius.circular(6.0),
+                  nullArtworkWidget: Container(
+                    width: 48.0,
+                    height: 48.0,
+                    decoration: BoxDecoration(
+                      color: CupertinoColors.systemGrey6.darkColor,
+                      borderRadius: BorderRadius.circular(6.0),
+                    ),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: SvgPicture.asset(
+                        SonorIcons.musicnote_bold,
+                        color: CupertinoColors.systemGrey.darkColor,
+                        width: 22.0,
+                        height: 22.0,
+                      ),
+                    ),
+                  ),
                 ),
                 const SizedBox(width: 12.0),
                 SizedBox(

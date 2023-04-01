@@ -27,6 +27,7 @@ ThemeData darkTheme() {
     scrollbarTheme: ScrollbarThemeData(
       thumbColor: MaterialStateProperty.resolveWith(thumbColor),
     ),
+    highlightColor: CupertinoColors.darkBackgroundGray,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: CupertinoColors.darkBackgroundGray,
       selectedItemColor: CupertinoColors.label.darkColor,

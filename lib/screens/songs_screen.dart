@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -55,27 +54,22 @@ class _SongsScreenState extends State<SongsScreen> {
 
         if (snapshot.data!.isEmpty) return const Text('Not found');
 
-        return ListView.separated(
-          separatorBuilder: (context, index) {
-            return const SizedBox(
-              height: 4.0,
-            );
-          },
+        return CustomScrollView(
           physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.only(
-            left: 10.0,
-            right: 10.0,
-            top: 16.0,
-            bottom: 80.0,
-          ),
-          itemCount: snapshot.data!.length,
-          itemBuilder: (BuildContext context, int index) {
-            final SongModel song = snapshot.data![index];
-            return Song(
-              song: song,
-              audioPlayer: _audioPlayer,
-            );
-          },
+          slivers: <Widget>[
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                childCount: snapshot.data!.length,
+                (context, index) {
+                  final SongModel song = snapshot.data![index];
+                  return Song(
+                    song: song,
+                    audioPlayer: _audioPlayer,
+                  );
+                },
+              ),
+            )
+          ],
         );
       },
     );
