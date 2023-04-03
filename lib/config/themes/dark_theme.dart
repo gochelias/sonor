@@ -5,21 +5,21 @@ import 'package:flutter/services.dart';
 ThemeData darkTheme() {
   final ThemeData base = ThemeData.dark();
 
-  const Color bgColor = Color(0xFF0B0B0B);
+  /* const Color bgColor = Color(0xFF0B0B0B); */
 
   Color thumbColor(Set<MaterialState> states) {
     return CupertinoColors.systemGrey4.darkColor;
   }
 
   return base.copyWith(
-    scaffoldBackgroundColor: bgColor,
+    scaffoldBackgroundColor: CupertinoColors.black,
     canvasColor: CupertinoColors.systemGrey6.darkColor,
     appBarTheme: const AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: bgColor,
+        statusBarColor: CupertinoColors.black,
         statusBarIconBrightness: Brightness.light,
       ),
-      backgroundColor: bgColor,
+      backgroundColor: CupertinoColors.black,
     ),
     scrollbarTheme: ScrollbarThemeData(
       thumbColor: MaterialStateProperty.resolveWith(thumbColor),
