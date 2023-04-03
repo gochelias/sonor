@@ -20,7 +20,6 @@ ThemeData darkTheme() {
         statusBarIconBrightness: Brightness.light,
       ),
       backgroundColor: bgColor,
-      shadowColor: Colors.transparent,
     ),
     scrollbarTheme: ScrollbarThemeData(
       thumbColor: MaterialStateProperty.resolveWith(thumbColor),

@@ -36,7 +36,7 @@ class LibraryScreen extends StatelessWidget {
             SizedBox(width: 8.0),
           ],
           bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(40.0),
+            preferredSize: const Size.fromHeight(32.0),
             child: Align(
               alignment: Alignment.centerLeft,
               child: TabBar(
@@ -46,21 +46,19 @@ class LibraryScreen extends StatelessWidget {
                 ),
                 splashFactory: NoSplash.splashFactory,
                 physics: const BouncingScrollPhysics(),
-                indicator: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100.0),
-                ),
                 labelColor: CupertinoColors.label.darkColor,
                 labelStyle: const TextStyle(
-                  fontSize: 22.0,
+                  fontSize: 16.0,
                   fontWeight: FontWeight.w600,
                 ),
+                indicatorColor: CupertinoColors.white,
+                indicatorSize: TabBarIndicatorSize.label,
                 unselectedLabelColor: CupertinoColors.systemGrey2.darkColor,
-                padding: const EdgeInsets.symmetric(horizontal: 6.0),
                 labelPadding: const EdgeInsets.only(
-                  left: 8.0,
-                  right: 18.0,
+                  left: 16.0,
+                  right: 16.0,
                   top: 6.0,
-                  bottom: 6.0,
+                  bottom: 8.0,
                 ),
                 tabs: const <Widget>[
                   Text('Playlists'),
