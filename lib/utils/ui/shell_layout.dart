@@ -14,13 +14,14 @@ class SonorShellLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        bottom: false,
         child: Stack(
           children: <Widget>[
             child,
-            const Positioned(
+            /* const Positioned(
               bottom: 4.0,
               child: CurrentlyPlaying(),
-            )
+            ) */
           ],
         ),
       ),

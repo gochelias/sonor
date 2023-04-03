@@ -12,8 +12,6 @@ ThemeData darkTheme() {
   }
 
   return base.copyWith(
-    brightness: Brightness.dark,
-    backgroundColor: bgColor,
     scaffoldBackgroundColor: bgColor,
     canvasColor: CupertinoColors.systemGrey6.darkColor,
     appBarTheme: const AppBarTheme(
@@ -29,9 +27,11 @@ ThemeData darkTheme() {
     ),
     highlightColor: CupertinoColors.darkBackgroundGray,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: CupertinoColors.darkBackgroundGray,
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      type: BottomNavigationBarType.fixed,
       selectedItemColor: CupertinoColors.label.darkColor,
-      unselectedItemColor: CupertinoColors.secondaryLabel.darkColor,
+      unselectedItemColor: CupertinoColors.systemGrey6,
     ),
   );
 }
