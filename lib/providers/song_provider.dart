@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:palette_generator/palette_generator.dart';
 
 class SongPlayerProvider with ChangeNotifier {
   bool _isPlaying = false;
@@ -55,9 +56,11 @@ class SongPlaying {
 class SongPlayingProvider with ChangeNotifier {
   bool _isActive = true;
   SongPlaying _songPlaying = SongPlaying(0, 'No Playing', 'No Playing');
+  PaletteGenerator? _palette;
 
   bool get isActive => _isActive;
   SongPlaying get songPlaying => _songPlaying;
+  PaletteGenerator? get palette => _palette;
 
   /// Set a new song [song]
   void setSong(SongPlaying song) {
@@ -69,6 +72,11 @@ class SongPlayingProvider with ChangeNotifier {
   void setIsActive(bool state) {
     _isActive = state;
 
+    notifyListeners();
+  }
+
+  void setPalette(PaletteGenerator? palette) {
+    _palette = palette;
     notifyListeners();
   }
 }

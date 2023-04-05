@@ -15,15 +15,7 @@ class SonorShellLayout extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         bottom: false,
-        child: Stack(
-          children: <Widget>[
-            child,
-            /* const Positioned(
-              bottom: 4.0,
-              child: CurrentlyPlaying(),
-            ) */
-          ],
-        ),
+        child: child,
       ),
       extendBody: true,
       bottomNavigationBar: const SonorBottomNavbar(),

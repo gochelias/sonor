@@ -6,6 +6,7 @@ import 'package:on_audio_query/on_audio_query.dart';
 import 'package:provider/provider.dart';
 
 import 'package:sonor/providers/providers.dart';
+import 'package:sonor/utils/helpers/helpers.dart';
 import 'package:sonor/widgets/widgets.dart';
 import 'package:sonor/icons/icons.dart';
 
@@ -33,7 +34,10 @@ class Song extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(0),
       splashColor: CupertinoColors.systemGrey4.darkColor,
-      onTap: () => {
+      onTap: () async => {
+        context
+            .read<SongPlayingProvider>()
+            .setPalette(await paletteGenerator(song.id, ArtworkType.AUDIO)),
         context.read<SongPlayingProvider>().setSong(songPlaying),
         context.read<SongPlayerProvider>().setSong(song.uri!, audioPlayer),
         context.read<SongPlayingProvider>().setIsActive(false),
@@ -50,6 +54,7 @@ class Song extends StatelessWidget {
               children: <Widget>[
                 QueryArtworkWidget(
                   id: song.id,
+                  size: 48,
                   type: ArtworkType.AUDIO,
                   artworkHeight: 48.0,
                   artworkWidth: 48.0,

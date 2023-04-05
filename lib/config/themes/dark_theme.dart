@@ -30,7 +30,7 @@ ThemeData darkTheme() {
       backgroundColor: Colors.transparent,
       type: BottomNavigationBarType.fixed,
       selectedItemColor: CupertinoColors.label.darkColor,
-      unselectedItemColor: CupertinoColors.systemGrey6,
+      unselectedItemColor: CupertinoColors.systemGrey3,
     ),
   );
 }

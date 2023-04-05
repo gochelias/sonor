@@ -51,9 +51,9 @@ class _PlayerSliderState extends State<PlayerSlider> {
             thumbRadius: 4.0,
             timeLabelPadding: 6.0,
             progressBarColor: CupertinoColors.white,
-            baseBarColor: CupertinoColors.systemGrey4.darkColor,
+            baseBarColor: CupertinoColors.label.darkColor.withOpacity(0.2),
             timeLabelTextStyle: TextStyle(
-              color: CupertinoColors.systemGrey.darkColor,
+              color: CupertinoColors.label.darkColor.withOpacity(0.6),
               fontSize: 12.0,
             ),
             progress: Duration(milliseconds: position.inMilliseconds.toInt()),
