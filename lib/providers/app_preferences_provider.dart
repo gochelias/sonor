@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sonor/utils/services/services.dart';
 
 class AppPreferencesProvider with ChangeNotifier {

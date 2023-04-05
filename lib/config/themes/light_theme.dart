@@ -7,7 +7,6 @@ ThemeData lightTheme() {
 
   return base.copyWith(
     brightness: Brightness.light,
-    backgroundColor: CupertinoColors.white,
     scaffoldBackgroundColor: CupertinoColors.white,
     canvasColor: CupertinoColors.white,
     appBarTheme: const AppBarTheme(
