@@ -54,7 +54,7 @@ class Song extends StatelessWidget {
               children: <Widget>[
                 QueryArtworkWidget(
                   id: song.id,
-                  size: 48,
+                  size: 200,
                   type: ArtworkType.AUDIO,
                   artworkHeight: 48.0,
                   artworkWidth: 48.0,
