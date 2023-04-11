@@ -109,6 +109,7 @@ flutter:
         - assets/svg/grid_linear.svg
         - assets/svg/trash_linear.svg
         - assets/svg/trash_bold.svg
+        - assets/svg/share_linear.svg
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware

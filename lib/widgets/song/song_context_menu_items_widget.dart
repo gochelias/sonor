@@ -16,7 +16,7 @@ final List<Widget> songContextMenuItems = <Widget>[
   const CustomDivider(),
   ContextMenuItem(
     leading: SvgPicture.asset(
-      SonorIcons.scan_qr_bold,
+      SonorIcons.share_linear,
       color: CupertinoColors.systemGrey,
     ),
     title: 'Share Song',
