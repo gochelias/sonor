@@ -31,4 +31,6 @@ class SonorIcons {
   static const add_square_linear = '$_path/add_square_linear.svg';
   static const add_square_bold = '$_path/add_square_bold.svg';
   static const grid_linear = '$_path/grid_linear.svg';
+  static const trash_linear = '$_path/trash_linear.svg';
+  static const trash_bold = '$_path/trash_bold.svg';
 }
