@@ -24,6 +24,14 @@ final List<Widget> songContextMenuItems = <Widget>[
   const CustomDivider(),
   ContextMenuItem(
     leading: SvgPicture.asset(
+      SonorIcons.info_linear,
+      color: CupertinoColors.systemGrey,
+    ),
+    title: 'Song Information',
+  ),
+  const CustomDivider(),
+  ContextMenuItem(
+    leading: SvgPicture.asset(
       SonorIcons.quote_square_linear,
       color: CupertinoColors.systemGrey,
     ),
