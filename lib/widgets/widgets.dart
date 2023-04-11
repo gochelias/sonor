@@ -11,4 +11,4 @@ export 'package:sonor/widgets/recently_played_witget.dart';
 export 'package:sonor/widgets/view_all_separator_widget.dart';
 export 'package:sonor/widgets/player/player_slider_widget.dart';
 export 'package:sonor/widgets/player/player_controls_widget.dart';
-export 'package:sonor/widgets/song/song_context_menu_items_widget.dart';
+export 'package:sonor/widgets/song/song_context_menu_widget.dart';

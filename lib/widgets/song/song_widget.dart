@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 
 import 'package:sonor/providers/providers.dart';
 import 'package:sonor/utils/helpers/helpers.dart';
-import 'package:sonor/utils/ui/ui.dart';
 import 'package:sonor/widgets/widgets.dart';
 import 'package:sonor/icons/icons.dart';
 
@@ -114,13 +113,12 @@ class Song extends StatelessWidget {
               ],
             ),
             SonorIconButton(
-              onTap: () {
-                contextMenu(
-                  context,
-                  song.title,
-                  songContextMenuItems,
-                );
-              },
+              onTap: () => showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return SongContextMenu(title: song.title);
+                },
+              ),
               icon: SonorIcons.more_bold,
               color: CupertinoColors.label.darkColor,
             )

@@ -3,10 +3,12 @@ import 'package:flutter/cupertino.dart';
 class ContextMenuItem extends StatelessWidget {
   const ContextMenuItem({
     super.key,
+    this.onTap,
     required this.leading,
     required this.title,
   });
 
+  final void Function()? onTap;
   final Widget leading;
   final String title;
 
