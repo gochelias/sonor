@@ -116,7 +116,7 @@ class Song extends StatelessWidget {
               onTap: () => showDialog(
                 context: context,
                 builder: (BuildContext context) {
-                  return SongContextMenu(title: song.title);
+                  return SongContextMenu(song: song);
                 },
               ),
               icon: SonorIcons.more_bold,

@@ -36,4 +36,7 @@ class SonorIcons {
   static const share_linear = '$_path/share_linear.svg';
   static const info_linear = '$_path/info_circle_linear.svg';
   static const info_bold = '$_path/info_circle_bold.svg';
+  static const arrow_left_linear = '$_path/arrow_left_linear.svg';
+  static const camera_linear = '$_path/camera_linear.svg';
+  static const camera_bold = '$_path/camera_bold.svg';
 }

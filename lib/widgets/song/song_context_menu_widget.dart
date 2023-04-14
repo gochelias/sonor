@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 
 import 'package:sonor/icons/icons.dart';
 import 'package:sonor/utils/ui/context_menu_item_ui.dart';
@@ -9,15 +11,15 @@ import 'package:sonor/utils/ui/context_menu_ui.dart';
 class SongContextMenu extends StatelessWidget {
   const SongContextMenu({
     super.key,
-    required this.title,
+    required this.song,
   });
 
-  final String title;
+  final SongModel song;
 
   @override
   Widget build(BuildContext context) {
     return ContextMenu(
-      title: title,
+      title: song.title,
       items: <Widget>[
         ContextMenuItem(
           leading: SvgPicture.asset(
@@ -36,7 +38,15 @@ class SongContextMenu extends StatelessWidget {
         ),
         const CustomDivider(),
         ContextMenuItem(
-          onTap: () {},
+          onTap: () {
+            Navigator.pop(context);
+
+            context.goNamed(
+              'song',
+              params: {'songId': song.id.toString()},
+              extra: song,
+            );
+          },
           leading: SvgPicture.asset(
             SonorIcons.info_linear,
             color: CupertinoColors.systemGrey,
