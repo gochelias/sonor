@@ -5,8 +5,8 @@ import 'package:on_audio_query/on_audio_query.dart';
 
 import 'package:sonor/icons/icons.dart';
 
-class PlaylistScreen extends StatelessWidget {
-  const PlaylistScreen({
+class PlaylistsScreen extends StatelessWidget {
+  const PlaylistsScreen({
     super.key,
   });
 

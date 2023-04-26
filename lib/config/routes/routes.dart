@@ -50,6 +50,13 @@ router() {
             },
             routes: <RouteBase>[
               GoRoute(
+                name: 'playlist',
+                path: 'playlists/:id',
+                pageBuilder: (BuildContext context, GoRouterState state) {
+                  return const NoTransitionPage(child: PlaylistScreen());
+                },
+              ),
+              GoRoute(
                 name: 'song',
                 path: 'songs/:songId',
                 parentNavigatorKey: rootNavigatorKey,

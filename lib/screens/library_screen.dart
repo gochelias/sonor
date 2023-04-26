@@ -74,7 +74,7 @@ class LibraryScreen extends StatelessWidget {
         body: const TabBarView(
           physics: BouncingScrollPhysics(),
           children: <Widget>[
-            PlaylistScreen(),
+            PlaylistsScreen(),
             SongsScreen(),
             Center(
               child: Text(
