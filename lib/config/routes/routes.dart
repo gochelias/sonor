@@ -53,7 +53,27 @@ router() {
                 name: 'playlist',
                 path: 'playlists/:id',
                 pageBuilder: (BuildContext context, GoRouterState state) {
-                  return const NoTransitionPage(child: PlaylistScreen());
+                  return CustomTransitionPage(
+                    child: const PlaylistScreen(),
+                    transitionsBuilder: (
+                      BuildContext context,
+                      Animation animation,
+                      Animation secondaryAnimation,
+                      Widget child,
+                    ) {
+                      return SlideTransition(
+                        position: animation.drive(
+                          Tween(
+                            begin: const Offset(1.0, 0.0),
+                            end: Offset.zero,
+                          ).chain(
+                            CurveTween(curve: Curves.easeInOutExpo),
+                          ),
+                        ),
+                        child: child,
+                      );
+                    },
+                  );
                 },
               ),
               GoRoute(
@@ -78,7 +98,6 @@ router() {
                       var tween = Tween(begin: begin, end: end).chain(
                         CurveTween(curve: curve),
                       );
-
                       return SlideTransition(
                         position: animation.drive(tween),
                         child: child,

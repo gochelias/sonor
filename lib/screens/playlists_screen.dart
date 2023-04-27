@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 import 'package:sonor/icons/icons.dart';
@@ -82,7 +83,12 @@ class PlaylistsScreen extends StatelessWidget {
                 (BuildContext context, int index) {
                   final PlaylistModel playlist = snapshot.data![index];
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      context.goNamed(
+                        'playlist',
+                        params: {'id': playlist.id.toString()},
+                      );
+                    },
                     highlightColor: CupertinoColors.darkBackgroundGray,
                     splashColor: CupertinoColors.systemGrey5.darkColor,
                     child: Container(
