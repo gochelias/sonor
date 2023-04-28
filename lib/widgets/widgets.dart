@@ -12,3 +12,4 @@ export 'package:sonor/widgets/view_all_separator_widget.dart';
 export 'package:sonor/widgets/player/player_slider_widget.dart';
 export 'package:sonor/widgets/player/player_controls_widget.dart';
 export 'package:sonor/widgets/song/song_context_menu_widget.dart';
+export 'package:sonor/widgets/add_to_playlist_widget.dart';
