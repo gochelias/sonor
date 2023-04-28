@@ -39,4 +39,6 @@ class SonorIcons {
   static const arrow_left_linear = '$_path/arrow_left_linear.svg';
   static const camera_linear = '$_path/camera_linear.svg';
   static const camera_bold = '$_path/camera_bold.svg';
+  static const music_square_add_linear = '$_path/music_square_add_linear.svg';
+  static const music_square_add_bold = '$_path/music_square_add_bold.svg';
 }
