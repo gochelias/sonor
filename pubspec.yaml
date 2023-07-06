@@ -47,6 +47,7 @@ dependencies:
     flutter_switch: ^0.3.2
     flutter_spinkit: ^5.1.0
     palette_generator: ^0.3.3+2
+    on_audio_room: ^2.2.1+1
 
 dev_dependencies:
     flutter_test:
