@@ -130,7 +130,24 @@ flutter:
     # "family" key with the font family name, and a "fonts" key with a
     # list giving the asset and other descriptors for the font. For
     # example:
-    # fonts:
+    fonts:
+        - family: Plus Jakarta
+          fonts:
+              - asset: "assets/fonts/PlusJakartaSans-Regular.ttf"
+                style: normal
+                weight: 400
+              - asset: "assets/fonts/PlusJakartaSans-Medium.ttf"
+                style: normal
+                weight: 500
+              - asset: "assets/fonts/PlusJakartaSans-SemiBold.ttf"
+                style: normal
+                weight: 600
+              - asset: "assets/fonts/PlusJakartaSans-Bold.ttf"
+                style: normal
+                weight: 700
+              - asset: "assets/fonts/PlusJakartaSans-ExtraBold.ttf"
+                style: normal
+                weight: 800
     #   - family: Schyler
     #     fonts:
     #       - asset: fonts/Schyler-Regular.ttf
